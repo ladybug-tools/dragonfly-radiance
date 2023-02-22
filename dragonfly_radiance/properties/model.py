@@ -186,6 +186,23 @@ class ModelRadianceProperties(object):
             new_host: A honeybee-core Model object that will host these properties.
         """
         hb_rad_props = hb_model_properties.ModelRadianceProperties(new_host)
+        # gather all of the sensor grid parameters across the model
+        sg_dict = {}
+        for rm_2d in self.host.room_2ds:
+            if len(rm_2d.properties.radiance._grid_parameters) != 0:
+                sg_dict[rm_2d.identifier] = rm_2d.properties.radiance._grid_parameters
+        # generate and assign sensor grids to the rooms of the new_host
+        if len(sg_dict) != 0:
+            sensor_grids = []
+            for rm_id, g_par in sg_dict.items():
+                for room in new_host.rooms:
+                    if room.identifier == rm_id:
+                        for gp in g_par:
+                            sg = gp.generate_grid_from_room(room)
+                            if sg is not None:
+                                sensor_grids.append(sg)
+                        break
+            hb_rad_props.sensor_grids = sensor_grids
         return hb_rad_props
 
     def duplicate(self, new_host=None):

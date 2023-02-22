@@ -2,8 +2,10 @@
 """Room2D Radiance Properties."""
 from honeybee_radiance.properties.room import RoomRadianceProperties
 from honeybee_radiance.modifierset import ModifierSet
-
 from honeybee_radiance.lib.modifiersets import generic_modifier_set_visible
+
+import dragonfly_radiance.gridpar as sg_par
+from ..gridpar import _GridParameterBase
 
 
 class Room2DRadianceProperties(object):
@@ -15,17 +17,21 @@ class Room2DRadianceProperties(object):
             modifiers for the Faces of the Room2D. If None, the Room2D will use
             the honeybee default modifier set, which is only representative
             of typical indoor conditions in the visible spectrum. (Default: None).
+        grid_parameters: An optional list of GridParameter objects to describe
+            how sensor grids should be generated for the Room2D. (Default: None).
 
     Properties:
         * host
         * modifier_set
+        * grid_parameters
     """
-    __slots__ = ('_host', '_modifier_set')
+    __slots__ = ('_host', '_modifier_set', '_grid_parameters')
 
-    def __init__(self, host, modifier_set=None):
+    def __init__(self, host, modifier_set=None, grid_parameters=None):
         """Initialize Room2D Radiance properties."""
         self._host = host
         self.modifier_set = modifier_set
+        self.grid_parameters = grid_parameters
 
     @property
     def host(self):
@@ -54,6 +60,39 @@ class Room2DRadianceProperties(object):
             value.lock()   # lock in case modifier set has multiple references
         self._modifier_set = value
 
+    @property
+    def grid_parameters(self):
+        """Get or set a list of GridParameters to generate sensor grids for the room.
+        """
+        return tuple(self._grid_parameters)
+
+    @grid_parameters.setter
+    def grid_parameters(self, value):
+        if value is not None:
+            if not isinstance(value, list):
+                value = list(value)
+            for sg in value:
+                assert isinstance(sg, _GridParameterBase), \
+                    'Expected GridParameter. Got {}'.format(type(sg))
+        else:
+            value = []
+        self._grid_parameters = value
+
+    def remove_grid_parameters(self):
+        """Remove all grid_parameters from the Room2D."""
+        self._grid_parameters = []
+
+    def add_grid_parameter(self, grid_parameter):
+        """Add a GridParameter to this Room2D.
+
+        Args:
+            grid_parameter: An GridParameter objects to describe how sensor grids
+                should be generated for the Room2D.
+        """
+        assert isinstance(grid_parameter, _GridParameterBase), \
+            'Expected GridParameter. Got {}.'.format(type(grid_parameter))
+        self._grid_parameters.append(grid_parameter)
+
     @classmethod
     def from_dict(cls, data, host):
         """Create Room2DRadianceProperties from a dictionary.
@@ -70,7 +109,8 @@ class Room2DRadianceProperties(object):
 
             {
             "type": 'Room2DRadianceProperties',
-            "modifier_set": {}  # A ModifierSet dictionary
+            "modifier_set": {},  # A ModifierSet dictionary
+            "grid_parameters": []  # A list of GridParameter dictionaries
             }
         """
         assert data['type'] == 'Room2DRadianceProperties', \
@@ -79,6 +119,16 @@ class Room2DRadianceProperties(object):
         new_prop = cls(host)
         if 'modifier_set' in data and data['modifier_set'] is not None:
             new_prop.modifier_set = ModifierSet.from_dict(data['modifier_set'])
+        if 'grid_parameters' in data and data['grid_parameters'] is not None:
+            grd_par = []
+            for gp in data['grid_parameters']:
+                try:
+                    g_class = getattr(sg_par, gp['type'])
+                except AttributeError:
+                    raise ValueError(
+                        'GridParameter "{}" is not recognized.'.format(gp['type']))
+                grd_par.append(g_class.from_dict(gp))
+            new_prop.grid_parameter = grd_par
 
         return new_prop
 
@@ -93,6 +143,17 @@ class Room2DRadianceProperties(object):
         """
         if 'modifier_set' in abridged_data and abridged_data['modifier_set'] is not None:
             self.modifier_set = modifier_sets[abridged_data['modifier_set']]
+        if 'grid_parameters' in abridged_data and \
+                abridged_data['grid_parameters'] is not None:
+            grd_par = []
+            for gp in abridged_data['grid_parameters']:
+                try:
+                    g_class = getattr(sg_par, gp['type'])
+                except AttributeError:
+                    raise ValueError(
+                        'GridParameter "{}" is not recognized.'.format(gp['type']))
+                grd_par.append(g_class.from_dict(gp))
+            self.grid_parameters = grd_par
 
     def to_dict(self, abridged=False):
         """Return Room2D radiance properties as a dictionary.
@@ -111,6 +172,12 @@ class Room2DRadianceProperties(object):
             base['radiance']['modifier_set'] = \
                 self._modifier_set.identifier if abridged else \
                 self._modifier_set.to_dict()
+
+        # write the GridParameters into the dictionary
+        if len(self._grid_parameters) != 0:
+            base['grid_parameters'] = []
+            for gdp in self._grid_parameters:
+                base['grid_parameters'].append(gdp.to_dict())
 
         return base
 
@@ -142,8 +209,8 @@ class Room2DRadianceProperties(object):
                 If None, the properties will be duplicated with the same host.
         """
         _host = new_host or self._host
-        df_prop = Room2DRadianceProperties(_host, self._modifier_set)
-        return df_prop
+        return Room2DRadianceProperties(
+            _host, self._modifier_set, self._grid_parameters[:])
 
     def ToString(self):
         return self.__repr__()
