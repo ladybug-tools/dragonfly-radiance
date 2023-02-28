@@ -125,7 +125,7 @@ class RoomGridParameter(_GridParameterBase):
             geometries. (Default: 1, suitable for Rooms in Meters).
         wall_offset: A number for the distance at which sensors close to walls
             should be removed. Note that this option has no effect unless the
-            value is more than half of the x_dim or y_dim. (Default: 0).
+            value is more than half of the dimension. (Default: 0).
         include_mesh: A boolean to note whether the resulting SensorGrid should
             include the mesh. (Default: True).
     """
