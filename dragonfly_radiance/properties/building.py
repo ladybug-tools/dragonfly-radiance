@@ -1,8 +1,9 @@
 # coding=utf-8
 """Building Radiance Properties."""
 from honeybee_radiance.modifierset import ModifierSet
-
 from honeybee_radiance.lib.modifiersets import generic_modifier_set_visible
+
+import dragonfly_radiance.gridpar as sg_par
 
 
 class BuildingRadianceProperties(object):
@@ -50,6 +51,15 @@ class BuildingRadianceProperties(object):
             value.lock()   # lock in case modifier set has multiple references
         self._modifier_set = value
 
+    def add_grid_parameter(self, grid_par):
+        """Add a GridParameter to all of the children Room2Ds of this Building.
+
+        Args:
+            grid_par: A radiance GridParameter object to assign to all children Room2Ds.
+        """
+        for room_2d in self.host.unique_room_2ds:
+            room_2d.properties.radiance.add_grid_parameter(grid_par)
+
     @classmethod
     def from_dict(cls, data, host):
         """Create BuildingRadianceProperties from a dictionary.
@@ -82,6 +92,24 @@ class BuildingRadianceProperties(object):
         if 'modifier_set' in abridged_data and \
                 abridged_data['modifier_set'] is not None:
             self.modifier_set = modifier_sets[abridged_data['modifier_set']]
+
+    def apply_properties_from_geojson_dict(self, data):
+        """Apply properties from a geoJSON dictionary.
+
+        Args:
+            data: A dictionary representation of a geoJSON feature properties.
+                Specifically, this should be the "properties" key describing
+                a Polygon or MultiPolygon object.
+        """
+        # assign the construction set based on climate zone
+        if 'grid_parameters' in data and data['grid_parameters'] is not None:
+            for gp in data['grid_parameters']:
+                try:
+                    g_class = getattr(sg_par, gp['type'])
+                except AttributeError:
+                    raise ValueError(
+                        'GridParameter "{}" is not recognized.'.format(gp['type']))
+                self.add_grid_parameter(g_class.from_dict(gp))
 
     def to_dict(self, abridged=False):
         """Return Building Radiance properties as a dictionary.
