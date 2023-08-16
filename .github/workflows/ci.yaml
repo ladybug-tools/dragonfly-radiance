@@ -7,11 +7,12 @@ jobs:
 
   test:
     name: Unit tests
-    runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.7]
+        python-version: ['3.7', '3.10']
+        os: [macos-latest, ubuntu-latest, windows-latest]
 
+    runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v2
       - name: set up Python
