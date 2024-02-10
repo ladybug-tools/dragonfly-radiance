@@ -1,16 +1,17 @@
 # coding=utf-8
 """Model Radiance Properties."""
-from dragonfly.extensionutil import model_extension_dicts
-
-from honeybee.checkdup import check_duplicate_identifiers
-import honeybee_radiance.properties.model as hb_model_properties
-from honeybee_radiance.lib.modifiersets import generic_modifier_set_visible
-from honeybee_radiance.lib.modifiers import generic_context
-
 try:
     from itertools import izip as zip  # python 2
 except ImportError:
     pass   # python 3
+
+from honeybee.checkdup import check_duplicate_identifiers
+from honeybee.extensionutil import room_extension_dicts
+import honeybee_radiance.properties.model as hb_model_properties
+from honeybee_radiance.lib.modifiersets import generic_modifier_set_visible
+from honeybee_radiance.lib.modifiers import generic_context
+
+from dragonfly.extensionutil import model_extension_dicts
 
 
 class ModelRadianceProperties(object):
@@ -47,18 +48,34 @@ class ModelRadianceProperties(object):
         bldg_mods = []
         for mod_set in self.modifier_sets:
             bldg_mods.extend(mod_set.modified_modifiers_unique)
-        all_mods = bldg_mods + self.shade_modifiers
+        all_mods = bldg_mods + self.face_modifiers + self.shade_modifiers
         return list(set(all_mods))
+
+    @property
+    def face_modifiers(self):
+        """Get a list of all unique modifiers assigned to Faces, Apertures and Doors.
+
+        These objects only exist under the Building.room_3ds property.
+        """
+        modifiers = []
+        for bldg in self.host.buildings:
+            for face in bldg.room_3d_faces:
+                self._check_and_add_obj_modifier(face, modifiers)
+                for ap in face.apertures:
+                    self._check_and_add_obj_modifier(ap, modifiers)
+                for dr in face.doors:
+                    self._check_and_add_obj_modifier(dr, modifiers)
+        return list(set(modifiers))
 
     @property
     def shade_modifiers(self):
         """A list of all unique modifiers assigned to ContextShades in the model."""
         modifiers = []
         for shade in self.host.context_shades:
-            if shade.properties.radiance.is_modifier_set_by_user:
-                if not self._instance_in_array(
-                        shade.properties.radiance.modifier, modifiers):
-                    modifiers.append(shade.properties.radiance.modifier)
+            self._check_and_add_obj_modifier(shade, modifiers)
+        for bldg in self.host.buildings:
+            for shd in bldg.room_3d_shades:
+                self._check_and_add_obj_modifier(shd, modifiers)
         return list(set(modifiers))
 
     @property
@@ -75,6 +92,8 @@ class ModelRadianceProperties(object):
                 self._check_and_add_obj_mod_set(story, modifier_sets)
                 for room in story.room_2ds:
                     self._check_and_add_obj_mod_set(room, modifier_sets)
+            for room in bldg.room_3ds:
+                self._check_and_add_obj_mod_set(room, modifier_sets)
         return list(set(modifier_sets))  # catch equivalent modifier sets
 
     @property
@@ -135,6 +154,30 @@ class ModelRadianceProperties(object):
             if b_dict is not None:
                 bldg.properties.radiance.apply_properties_from_dict(
                     b_dict, modifier_sets)
+            if bldg.has_room_3ds and b_dict is not None and 'room_3ds' in b_dict and \
+                    b_dict['room_3ds'] is not None:
+                room_e_dicts, face_e_dicts, shd_e_dicts, ap_e_dicts, dr_e_dicts = \
+                    room_extension_dicts(b_dict['room_3ds'], 'radiance', [], [], [], [], [])
+                for room, r_dict in zip(bldg.room_3ds, room_e_dicts):
+                    if r_dict is not None:
+                        room.properties.radiance.apply_properties_from_dict(
+                            r_dict, modifier_sets)
+                for face, f_dict in zip(bldg.room_3d_faces, face_e_dicts):
+                    if f_dict is not None:
+                        face.properties.radiance.apply_properties_from_dict(
+                            f_dict, modifiers)
+                for aperture, a_dict in zip(bldg.room_3d_apertures, ap_e_dicts):
+                    if a_dict is not None:
+                        aperture.properties.radiance.apply_properties_from_dict(
+                            a_dict, modifiers)
+                for door, d_dict in zip(bldg.room_3d_doors, dr_e_dicts):
+                    if d_dict is not None:
+                        door.properties.radiance.apply_properties_from_dict(
+                            d_dict, modifiers)
+                for shade, s_dict in zip(bldg.room_3d_shades, shd_e_dicts):
+                    if s_dict is not None:
+                        shade.properties.radiance.apply_properties_from_dict(
+                            s_dict, modifiers)
         for story, s_dict in zip(self.host.stories, story_e_dicts):
             if s_dict is not None:
                 story.properties.radiance.apply_properties_from_dict(
@@ -171,7 +214,7 @@ class ModelRadianceProperties(object):
         room_mods = []
         for mod_set in modifier_sets:
             room_mods.extend(mod_set.modified_modifiers_unique)
-        all_mods = room_mods + self.shade_modifiers
+        all_mods = room_mods + self.face_modifiers + self.shade_modifiers
         modifiers = tuple(set(all_mods))
         base['radiance']['modifiers'] = []
         for mod in modifiers:
@@ -214,6 +257,13 @@ class ModelRadianceProperties(object):
         """
         _host = new_host or self._host
         return ModelRadianceProperties(_host)
+
+    def _check_and_add_obj_modifier(self, obj, modifiers):
+        """Check if a modifier is assigned to an object and add it to a list."""
+        mod = obj.properties.radiance._modifier
+        if mod is not None:
+            if not self._instance_in_array(mod, modifiers):
+                modifiers.append(mod)
 
     def _check_and_add_obj_mod_set(self, obj, modifier_sets):
         """Check if a modifier set is assigned to an object and add it to a list."""
