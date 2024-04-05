@@ -1,7 +1,9 @@
 # coding=utf-8
 """Context Shade Radiance Properties."""
+from honeybee.shade import Shade
 from honeybee_radiance.modifier import Modifier
 from honeybee_radiance.properties.shade import ShadeRadianceProperties
+from honeybee_radiance.properties.shademesh import ShadeMeshRadianceProperties
 from honeybee_radiance.mutil import dict_to_modifier  # imports all modifiers classes
 from honeybee_radiance.lib.modifiers import generic_context
 
@@ -105,9 +107,12 @@ class ContextShadeRadianceProperties(object):
         """Get a honeybee version of this object.
 
         Args:
-            new_host: A honeybee-core Shade object that will host these properties.
+            new_host: A honeybee-core Shade or ShadeMesh object that will host
+                these properties.
         """
-        return ShadeRadianceProperties(new_host, self._modifier)
+        return ShadeRadianceProperties(new_host, self._modifier) \
+            if isinstance(new_host, Shade) else \
+            ShadeMeshRadianceProperties(new_host, self._modifier)
 
     def from_honeybee(self, hb_properties):
         """Transfer radiance attributes from a Honeybee Shade to Dragonfly ContextShade.
