@@ -12,6 +12,8 @@ Dragonfly extension for Radiance simulation.
 
 `pip install dragonfly-radiance`
 
+To check if the command line interface is installed correctly use `dragonfly-radiance --help`.
+
 ## QuickStart
 
 ```python
