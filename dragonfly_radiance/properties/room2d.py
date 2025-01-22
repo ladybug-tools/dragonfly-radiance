@@ -177,7 +177,7 @@ class Room2DRadianceProperties(object):
         if len(self._grid_parameters) != 0:
             base['grid_parameters'] = []
             for gdp in self._grid_parameters:
-                base['grid_parameters'].append(gdp.to_dict())
+                base['radiance']['grid_parameters'].append(gdp.to_dict())
 
         return base
 
