@@ -128,7 +128,7 @@ class Room2DRadianceProperties(object):
                     raise ValueError(
                         'GridParameter "{}" is not recognized.'.format(gp['type']))
                 grd_par.append(g_class.from_dict(gp))
-            new_prop.grid_parameter = grd_par
+            new_prop.grid_parameters = grd_par
 
         return new_prop
 
@@ -175,10 +175,8 @@ class Room2DRadianceProperties(object):
 
         # write the GridParameters into the dictionary
         if len(self._grid_parameters) != 0:
-            base['grid_parameters'] = []
-            for gdp in self._grid_parameters:
-                base['radiance']['grid_parameters'].append(gdp.to_dict())
-
+            base['radiance']['grid_parameters'] = \
+                [gdp.to_dict() for gdp in self._grid_parameters]
         return base
 
     def to_honeybee(self, new_host):

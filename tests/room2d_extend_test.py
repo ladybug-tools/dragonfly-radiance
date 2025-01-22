@@ -11,6 +11,7 @@ from dragonfly.windowparameter import SimpleWindowRatio
 from dragonfly.shadingparameter import Overhang
 
 from dragonfly_radiance.properties.room2d import Room2DRadianceProperties
+from dragonfly_radiance.gridpar import RoomGridParameter
 
 
 def test_radiance_properties():
@@ -109,8 +110,10 @@ def test_to_dict():
         rd['properties']['radiance']['modifier_set'] is None
 
     room.properties.radiance.modifier_set = default_set
+    room.properties.radiance.grid_parameters = [RoomGridParameter(0.3)]
     rd = room.to_dict()
     assert rd['properties']['radiance']['modifier_set'] is not None
+    assert len(rd['properties']['radiance']['grid_parameters']) == 1
 
 
 def test_from_dict():
@@ -122,8 +125,10 @@ def test_from_dict():
 
     default_set = ModifierSet('Tinted_Window_Set')
     room.properties.radiance.modifier_set = default_set
+    room.properties.radiance.grid_parameters = [RoomGridParameter(0.3)]
 
     rd = room.to_dict()
     new_room = Room2D.from_dict(rd)
     assert new_room.properties.radiance.modifier_set.identifier == 'Tinted_Window_Set'
+    assert len(new_room.properties.radiance.grid_parameters) == 1
     assert new_room.to_dict() == rd
