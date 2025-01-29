@@ -21,9 +21,9 @@ def translate():
               'multipliers on each Building story will be passed along to the '
               'generated Honeybee Room objects or if full geometry objects should be '
               'written for each story in the building.', default=True, show_default=True)
-@click.option('--no-plenum/--plenum', ' /-p', help='Flag to indicate whether '
-              'ceiling/floor plenums should be auto-generated for the Rooms.',
-              default=True, show_default=True)
+@click.option('--plenum/--no-plenum', '-p/-np', help='Flag to indicate whether '
+              'ceiling/floor plenum depths assigned to Room2Ds should generate '
+              'distinct 3D Rooms in the translation.', default=True, show_default=True)
 @click.option('--no-ceil-adjacency/--ceil-adjacency', ' /-a', help='Flag to indicate '
               'whether adjacencies should be solved between interior stories when '
               'Room2Ds perfectly match one another in their floor plate. This ensures '
@@ -40,7 +40,7 @@ def translate():
 @click.option('--output-file', '-f', help='Optional Rad file to output the Rad string '
               'of the translation. By default this will be printed out to stdout',
               type=click.File('w'), default='-', show_default=True)
-def model_to_rad(model_file, multiplier, no_plenum, no_ceil_adjacency,
+def model_to_rad(model_file, multiplier, plenum, no_ceil_adjacency,
                  blk, minimal, output_file):
     """Translate a Dragonfly Model file to a Radiance string.
 
@@ -55,11 +55,11 @@ def model_to_rad(model_file, multiplier, no_plenum, no_ceil_adjacency,
         model = Model.from_file(model_file)
 
         # convert Dragonfly Model to Honeybee
-        add_plenum = not no_plenum
+        no_plenum = not plenum
         ceil_adjacency = not no_ceil_adjacency
         hb_models = model.to_honeybee(
             object_per_model='District', use_multiplier=multiplier,
-            add_plenum=add_plenum, solve_ceiling_adjacencies=ceil_adjacency)
+            exclude_plenums=no_plenum, solve_ceiling_adjacencies=ceil_adjacency)
         hb_model = hb_models[0]
 
         # create the strings for modifiers and geometry
