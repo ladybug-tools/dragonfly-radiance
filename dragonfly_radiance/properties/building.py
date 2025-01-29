@@ -60,6 +60,22 @@ class BuildingRadianceProperties(object):
         for room_2d in self.host.unique_room_2ds:
             room_2d.properties.radiance.add_grid_parameter(grid_par)
 
+    def make_plenums(self, room_ids):
+        """Turn Room2Ds on the host Building into plenums with no inside grid parameters.
+
+        Grid parameters for exterior facades will be kept. This is useful to
+        appropriately assign properties for closets, underfloor spaces, and
+        drop ceilings.
+
+        Args:
+            room_ids: A list of identifiers for Room2Ds on this Building to be
+                converted into plenums.
+        """
+        room_ids = set(room_ids)
+        for rm in self.host.unique_room_2ds:
+            if rm.identifier in room_ids:
+                rm.properties.radiance.make_plenum()
+
     @classmethod
     def from_dict(cls, data, host):
         """Create BuildingRadianceProperties from a dictionary.

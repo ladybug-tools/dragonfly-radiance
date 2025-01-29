@@ -5,7 +5,7 @@ from honeybee_radiance.modifierset import ModifierSet
 from honeybee_radiance.lib.modifiersets import generic_modifier_set_visible
 
 import dragonfly_radiance.gridpar as sg_par
-from ..gridpar import _GridParameterBase
+from ..gridpar import _GridParameterBase, RoomGridParameter, RoomRadialGridParameter
 
 
 class Room2DRadianceProperties(object):
@@ -92,6 +92,19 @@ class Room2DRadianceProperties(object):
         assert isinstance(grid_parameter, _GridParameterBase), \
             'Expected GridParameter. Got {}.'.format(type(grid_parameter))
         self._grid_parameters.append(grid_parameter)
+
+    def make_plenum(self):
+        """Turn the host Room2D into a plenum with no grid parameters inside the room.
+
+        Grid parameters for exterior facades will be kept. This is useful to
+        appropriately assign properties for closets, underfloor spaces, and
+        drop ceilings.
+        """
+        plenum_g_par = []
+        for g_par in self._grid_parameters:
+            if not isinstance(g_par, (RoomGridParameter, RoomRadialGridParameter)):
+                plenum_g_par.append(g_par)
+        self._grid_parameters = plenum_g_par
 
     @classmethod
     def from_dict(cls, data, host):
