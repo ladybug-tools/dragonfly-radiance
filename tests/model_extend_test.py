@@ -85,12 +85,19 @@ def test_check_duplicate_modifier_set_identifiers():
 
     assert model.properties.radiance.check_duplicate_modifier_set_identifiers(False) \
         == ''
+    assert model.properties.radiance.check_all_duplicate_identifiers(False) \
+        == ''
+
     constr_set2 = ModifierSet('Tinted_Window_Set')
     building.unique_room_2ds[-2].properties.radiance.modifier_set = constr_set2
     assert model.properties.radiance.check_duplicate_modifier_set_identifiers(False) \
         != ''
+    assert model.properties.radiance.check_all_duplicate_identifiers(False) \
+        != ''
     with pytest.raises(ValueError):
         model.properties.radiance.check_duplicate_modifier_set_identifiers(True)
+    with pytest.raises(ValueError):
+        model.properties.radiance.check_all_duplicate_identifiers(True)
 
 
 def test_to_from_dict():
