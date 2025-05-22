@@ -170,7 +170,9 @@ class ModelRadianceProperties(object):
         msgs = []
         # perform checks for specific radiance simulation rules
         # output a final report of errors or raise an exception
-        full_msgs = [msg for msg in msgs if msg != '']
+        full_msgs = [msg for msg in msgs if msg]
+        if detailed:
+            return [m for msg in full_msgs for m in msg]
         full_msg = '\n'.join(full_msgs)
         if raise_exception and len(full_msgs) != 0:
             raise ValueError(full_msg)
