@@ -99,8 +99,8 @@ def model_to_rad_folder_cli(
 
     \b
     Args:
-        model_file: Full path to a Model JSON file (HBJSON) or a Model
-            pkl (HBpkl) file. This can also be a zipped version of a Radiance
+        model_file: Full path to a Model JSON file (DFJSON) or a Model
+            pkl (DFpkl) file. This can also be a zipped version of a Radiance
             folder, in which case this command will simply unzip the file
             into the --folder and no other operations will be performed on it.
     """
@@ -131,8 +131,8 @@ def model_to_rad_folder(
     """Translate a Model file into a Radiance Folder.
 
     Args:
-        model_file: Full path to a Model JSON file (HBJSON) or a Model
-            pkl (HBpkl) file. This can also be a zipped version of a Radiance
+        model_file: Full path to a Model JSON file (DFJSON) or a Model
+            pkl (DFpkl) file. This can also be a zipped version of a Radiance
             folder, in which case this command will simply unzip the file
             into the --folder and no other operations will be performed on it.
         folder: Folder into which the model Radiance folders will be written.
@@ -293,7 +293,7 @@ def model_to_rad(
     correctly account for dynamic objects, model-to-rad-folder should be used.
 
     Args:
-        model_file: Full path to a Model JSON file (HBJSON) or a Model pkl (HBpkl) file.
+        model_file: Full path to a Model JSON file (DFJSON) or a Model pkl (DFpkl) file.
         full_geometry: Boolean to note if the multipliers on each Building story
             will be passed along to the generated Honeybee Room objects or if
             full geometry objects should be written for each story in the
