@@ -27,6 +27,11 @@ class ModelRadianceProperties(object):
         * modifier_sets
         * global_modifier_set
     """
+    # dictionary mapping validation error codes to a corresponding check function
+    ERROR_MAP = {
+        '010001': 'check_duplicate_modifier_identifiers',
+        '010002': 'check_duplicate_modifier_set_identifiers'
+    }
 
     def __init__(self, host):
         """Initialize Model Radiance properties."""
