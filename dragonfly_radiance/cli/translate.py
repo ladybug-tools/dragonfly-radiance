@@ -41,6 +41,14 @@ def translate():
     default=True, show_default=True
 )
 @click.option(
+    '--merge-method', '-m', help='Text to describe how the Room2Ds should '
+    'be merged into individual Rooms during the translation. Specifying a '
+    'value here can be an effective way to reduce the number of Room '
+    'volumes in the resulting Model and, ultimately, yield less results to manage. '
+    'Choose from: None, Zones, PlenumZones, Stories, PlenumStories.',
+    type=str, default='None', show_default=True
+)
+@click.option(
     '--folder', help='Folder into which the model Radiance '
     'folders will be written. If None, the files will be output in the '
     'same location as the model_file.', default=None, show_default=True
@@ -91,7 +99,7 @@ def translate():
     'folder generated from the model. By default this will be printed '
     'to stdout', type=click.File('w'), default='-')
 def model_to_rad_folder_cli(
-    model_file, multiplier, plenum, no_ceil_adjacency,
+    model_file, multiplier, plenum, no_ceil_adjacency, merge_method,
     folder, view, grid, full_match, config_file, minimal,
     no_grid_check, no_view_check, create_grids, log_file
 ):
@@ -111,7 +119,7 @@ def model_to_rad_folder_cli(
         grid_check = not no_grid_check
         view_check = not no_view_check
         model_to_rad_folder(
-            model_file, full_geometry, no_plenum, ceil_adjacency,
+            model_file, full_geometry, no_plenum, ceil_adjacency, merge_method,
             folder, view, grid, full_match, config_file,
             minimal, grid_check, view_check, create_grids, log_file)
     except Exception as e:
@@ -123,8 +131,9 @@ def model_to_rad_folder_cli(
 
 def model_to_rad_folder(
     model_file, full_geometry=False, no_plenum=False, ceil_adjacency=False,
-    folder=None, view=None, grid=None, full_match=False, config_file=None,
-    minimal=False, grid_check=False, view_check=False, create_grids=False, log_file=None,
+    merge_method='None', folder=None, view=None, grid=None, full_match=False,
+    config_file=None, minimal=False, grid_check=False, view_check=False,
+    create_grids=False, log_file=None,
     multiplier=True, plenum=True, no_ceil_adjacency=True,
     no_full_match=True, maximal=True, no_grid_check=False, no_view_check=False,
 ):
@@ -135,6 +144,33 @@ def model_to_rad_folder(
             pkl (DFpkl) file. This can also be a zipped version of a Radiance
             folder, in which case this command will simply unzip the file
             into the --folder and no other operations will be performed on it.
+        full_geometry: Boolean to note if the multipliers on each Building story
+            will be passed along to the generated Honeybee Room objects or if
+            full geometry objects should be written for each story in the
+            building. (Default: False).
+        no_plenum: Boolean to indicate whether ceiling/floor plenum depths
+            assigned to Room2Ds should generate distinct 3D Rooms in the
+            translation. (Default: False).
+        ceil_adjacency: Boolean to indicate whether adjacencies should be solved
+            between interior stories when Room2Ds perfectly match one another
+            in their floor plate. This ensures that Surface boundary conditions
+            are used instead of Adiabatic ones. Note that this input has no
+            effect when the object-per-model is Story. (Default: False).
+        merge_method: An optional text string to describe how the Room2Ds should
+            be merged into individual Rooms during the translation. Specifying a
+            value here can be an effective way to reduce the number of Room
+            volumes in the resulting Model and, ultimately, yield less
+            results to manage. Note that Room2Ds will only be merged if they
+            form a contiguous volume. Otherwise, there will be multiple Rooms per
+            zone or story, each with an integer added at the end of their
+            identifiers. Choose from the following options:
+
+            * None - No merging will occur
+            * Zones - Room2Ds in the same zone will be merged
+            * PlenumZones - Only plenums in the same zone will be merged
+            * Stories - Rooms in the same story will be merged
+            * PlenumStories - Only plenums in the same story will be merged
+
         folder: Folder into which the model Radiance folders will be written.
             If None, the files will be output in the same location as the model_file.
         view: List of grids to be included in folder. By default all the sensor
@@ -185,7 +221,8 @@ def model_to_rad_folder(
         multiplier = not full_geometry
         hb_models = model.to_honeybee(
             object_per_model='District', use_multiplier=multiplier,
-            exclude_plenums=no_plenum, solve_ceiling_adjacencies=ceil_adjacency)
+            exclude_plenums=no_plenum, solve_ceiling_adjacencies=ceil_adjacency,
+            merge_method=merge_method)
         model = hb_models[0]
 
         if create_grids:
@@ -247,6 +284,12 @@ def model_to_rad_folder(
               'that Surface boundary conditions are used instead of Adiabatic ones. '
               'Note that this input has no effect when the object-per-model is Story.',
               default=True, show_default=True)
+@click.option('--merge-method', '-m', help='Text to describe how the Room2Ds should '
+              'be merged into individual Rooms during the translation. Specifying a '
+              'value here can be an effective way to reduce the number of Room '
+              'volumes in the resulting Model and, ultimately, yield less results to manage. '
+              'Choose from: None, Zones, PlenumZones, Stories, PlenumStories.',
+              type=str, default='None', show_default=True)
 @click.option('--blk', help='Boolean to note whether the "blacked out" version '
               'of the geometry should be output, which is useful for direct studies '
               'and isolation studies of individual apertures.',
@@ -257,7 +300,7 @@ def model_to_rad_folder(
 @click.option('--output-file', '-f', help='Optional Rad file to output the Rad string '
               'of the translation. By default this will be printed out to stdout',
               type=click.File('w'), default='-', show_default=True)
-def model_to_rad_cli(model_file, multiplier, plenum, no_ceil_adjacency,
+def model_to_rad_cli(model_file, multiplier, plenum, no_ceil_adjacency, merge_method,
                      blk, minimal, output_file):
     """Translate a Dragonfly Model file to a Radiance string.
 
@@ -272,7 +315,7 @@ def model_to_rad_cli(model_file, multiplier, plenum, no_ceil_adjacency,
         no_plenum = not plenum
         ceil_adjacency = not no_ceil_adjacency
         model_to_rad(model_file, full_geometry, no_plenum, ceil_adjacency,
-                     blk, minimal, output_file)
+                     merge_method, blk, minimal, output_file)
     except Exception as e:
         _logger.exception('Model translation failed.\n{}\n'.format(e))
         sys.exit(1)
@@ -282,7 +325,7 @@ def model_to_rad_cli(model_file, multiplier, plenum, no_ceil_adjacency,
 
 def model_to_rad(
     model_file, full_geometry=False, no_plenum=False, ceil_adjacency=False,
-    blk=False, minimal=False, output_file=None,
+    merge_method='None', blk=False, minimal=False, output_file=None,
     multiplier=True, plenum=True, no_ceil_adjacency=True, maximal=True
 ):
     """Translate a Model file to a Radiance string.
@@ -306,6 +349,21 @@ def model_to_rad(
             in their floor plate. This ensures that Surface boundary conditions
             are used instead of Adiabatic ones. Note that this input has no
             effect when the object-per-model is Story. (Default: False).
+        merge_method: An optional text string to describe how the Room2Ds should
+            be merged into individual Rooms during the translation. Specifying a
+            value here can be an effective way to reduce the number of Room
+            volumes in the resulting Model and, ultimately, yield less
+            results to manage. Note that Room2Ds will only be merged if they
+            form a contiguous volume. Otherwise, there will be multiple Rooms per
+            zone or story, each with an integer added at the end of their
+            identifiers. Choose from the following options:
+
+            * None - No merging will occur
+            * Zones - Room2Ds in the same zone will be merged
+            * PlenumZones - Only plenums in the same zone will be merged
+            * Stories - Rooms in the same story will be merged
+            * PlenumStories - Only plenums in the same story will be merged
+
         blk: Boolean to note whether the "blacked out" version of the geometry
             should be output, which is useful for direct studies and isolation
             studies of individual apertures.
@@ -321,7 +379,9 @@ def model_to_rad(
     multiplier = not full_geometry
     hb_models = model.to_honeybee(
         object_per_model='District', use_multiplier=multiplier,
-        exclude_plenums=no_plenum, solve_ceiling_adjacencies=ceil_adjacency)
+        exclude_plenums=no_plenum, solve_ceiling_adjacencies=ceil_adjacency,
+        merge_method=merge_method
+    )
     hb_model = hb_models[0]
 
     # create the strings for modifiers and geometry
