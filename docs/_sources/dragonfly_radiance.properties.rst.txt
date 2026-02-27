@@ -1,0 +1,22 @@
+dragonfly\_radiance.properties package
+======================================
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   dragonfly_radiance.properties.building
+   dragonfly_radiance.properties.context
+   dragonfly_radiance.properties.model
+   dragonfly_radiance.properties.room2d
+   dragonfly_radiance.properties.story
+
+Module contents
+---------------
+
+.. automodule:: dragonfly_radiance.properties
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>dragonfly_radiance.properties.model &#8212; dragonfly-radiance  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/bootstrap-sphinx.css?v=0bf093e7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=0b9525ea" />
+    <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+<link rel="icon" type="image/x-icon" href="https://github.com/ladybug-tools/artwork/raw/refs/heads/master/icons_bugs/ico/dragonfly.ico">
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../../../_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="../../../_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="../../../_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="../../../_static/bootstrap-sphinx.js "></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          dragonfly-radiance</a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../cli/index.html">CLI Docs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../cli/index.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cli/index.html#commands">Commands</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../cli/translate.html">translate</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../cli/translate.html#dragonfly-radiance-translate">dragonfly-radiance translate</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../cli/translate.html#dragonfly-radiance-translate-model-to-rad">model-to-rad</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cli/translate.html#dragonfly-radiance-translate-model-to-rad-folder">model-to-rad-folder</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">dragonfly_radiance</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../dragonfly_radiance.html">dragonfly_radiance package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../dragonfly_radiance.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../dragonfly_radiance.cli.html">dragonfly_radiance.cli package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../dragonfly_radiance.cli.html#submodules">Submodules</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.cli.translate.html">dragonfly_radiance.cli.translate module</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="../../../dragonfly_radiance.cli.translate.html#dragonfly_radiance.cli.translate.model_to_rad"><code class="docutils literal notranslate"><span class="pre">model_to_rad()</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../dragonfly_radiance.cli.translate.html#dragonfly_radiance.cli.translate.model_to_rad_folder"><code class="docutils literal notranslate"><span class="pre">model_to_rad_folder()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="../../../dragonfly_radiance.cli.html#module-dragonfly_radiance.cli">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../dragonfly_radiance.properties.html">dragonfly_radiance.properties package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../dragonfly_radiance.properties.html#submodules">Submodules</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.properties.building.html">dragonfly_radiance.properties.building module</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="../../../dragonfly_radiance.properties.building.html#dragonfly_radiance.properties.building.BuildingRadianceProperties"><code class="docutils literal notranslate"><span class="pre">BuildingRadianceProperties</span></code></a><ul>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.building.html#dragonfly_radiance.properties.building.BuildingRadianceProperties.ToString"><code class="docutils literal notranslate"><span class="pre">ToString()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.building.html#dragonfly_radiance.properties.building.BuildingRadianceProperties.add_grid_parameter"><code class="docutils literal notranslate"><span class="pre">add_grid_parameter()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.building.html#dragonfly_radiance.properties.building.BuildingRadianceProperties.apply_properties_from_dict"><code class="docutils literal notranslate"><span class="pre">apply_properties_from_dict()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.building.html#dragonfly_radiance.properties.building.BuildingRadianceProperties.apply_properties_from_geojson_dict"><code class="docutils literal notranslate"><span class="pre">apply_properties_from_geojson_dict()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.building.html#dragonfly_radiance.properties.building.BuildingRadianceProperties.duplicate"><code class="docutils literal notranslate"><span class="pre">duplicate()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.building.html#dragonfly_radiance.properties.building.BuildingRadianceProperties.from_dict"><code class="docutils literal notranslate"><span class="pre">from_dict()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.building.html#dragonfly_radiance.properties.building.BuildingRadianceProperties.make_plenums"><code class="docutils literal notranslate"><span class="pre">make_plenums()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.building.html#dragonfly_radiance.properties.building.BuildingRadianceProperties.to_dict"><code class="docutils literal notranslate"><span class="pre">to_dict()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.building.html#dragonfly_radiance.properties.building.BuildingRadianceProperties.host"><code class="docutils literal notranslate"><span class="pre">host</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.building.html#dragonfly_radiance.properties.building.BuildingRadianceProperties.modifier_set"><code class="docutils literal notranslate"><span class="pre">modifier_set</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.properties.context.html">dragonfly_radiance.properties.context module</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="../../../dragonfly_radiance.properties.context.html#dragonfly_radiance.properties.context.ContextShadeRadianceProperties"><code class="docutils literal notranslate"><span class="pre">ContextShadeRadianceProperties</span></code></a><ul>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.context.html#dragonfly_radiance.properties.context.ContextShadeRadianceProperties.ToString"><code class="docutils literal notranslate"><span class="pre">ToString()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.context.html#dragonfly_radiance.properties.context.ContextShadeRadianceProperties.apply_properties_from_dict"><code class="docutils literal notranslate"><span class="pre">apply_properties_from_dict()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.context.html#dragonfly_radiance.properties.context.ContextShadeRadianceProperties.duplicate"><code class="docutils literal notranslate"><span class="pre">duplicate()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.context.html#dragonfly_radiance.properties.context.ContextShadeRadianceProperties.from_dict"><code class="docutils literal notranslate"><span class="pre">from_dict()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.context.html#dragonfly_radiance.properties.context.ContextShadeRadianceProperties.from_honeybee"><code class="docutils literal notranslate"><span class="pre">from_honeybee()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.context.html#dragonfly_radiance.properties.context.ContextShadeRadianceProperties.to_dict"><code class="docutils literal notranslate"><span class="pre">to_dict()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.context.html#dragonfly_radiance.properties.context.ContextShadeRadianceProperties.to_honeybee"><code class="docutils literal notranslate"><span class="pre">to_honeybee()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.context.html#dragonfly_radiance.properties.context.ContextShadeRadianceProperties.host"><code class="docutils literal notranslate"><span class="pre">host</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.context.html#dragonfly_radiance.properties.context.ContextShadeRadianceProperties.is_modifier_set_by_user"><code class="docutils literal notranslate"><span class="pre">is_modifier_set_by_user</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.context.html#dragonfly_radiance.properties.context.ContextShadeRadianceProperties.modifier"><code class="docutils literal notranslate"><span class="pre">modifier</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.properties.model.html">dragonfly_radiance.properties.model module</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="../../../dragonfly_radiance.properties.model.html#dragonfly_radiance.properties.model.ModelRadianceProperties"><code class="docutils literal notranslate"><span class="pre">ModelRadianceProperties</span></code></a><ul>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.model.html#dragonfly_radiance.properties.model.ModelRadianceProperties.ToString"><code class="docutils literal notranslate"><span class="pre">ToString()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.model.html#dragonfly_radiance.properties.model.ModelRadianceProperties.apply_properties_from_dict"><code class="docutils literal notranslate"><span class="pre">apply_properties_from_dict()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.model.html#dragonfly_radiance.properties.model.ModelRadianceProperties.check_all"><code class="docutils literal notranslate"><span class="pre">check_all()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.model.html#dragonfly_radiance.properties.model.ModelRadianceProperties.check_all_duplicate_identifiers"><code class="docutils literal notranslate"><span class="pre">check_all_duplicate_identifiers()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.model.html#dragonfly_radiance.properties.model.ModelRadianceProperties.check_duplicate_modifier_identifiers"><code class="docutils literal notranslate"><span class="pre">check_duplicate_modifier_identifiers()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.model.html#dragonfly_radiance.properties.model.ModelRadianceProperties.check_duplicate_modifier_set_identifiers"><code class="docutils literal notranslate"><span class="pre">check_duplicate_modifier_set_identifiers()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.model.html#dragonfly_radiance.properties.model.ModelRadianceProperties.check_for_extension"><code class="docutils literal notranslate"><span class="pre">check_for_extension()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.model.html#dragonfly_radiance.properties.model.ModelRadianceProperties.check_generic"><code class="docutils literal notranslate"><span class="pre">check_generic()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.model.html#dragonfly_radiance.properties.model.ModelRadianceProperties.duplicate"><code class="docutils literal notranslate"><span class="pre">duplicate()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.model.html#dragonfly_radiance.properties.model.ModelRadianceProperties.to_dict"><code class="docutils literal notranslate"><span class="pre">to_dict()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.model.html#dragonfly_radiance.properties.model.ModelRadianceProperties.to_honeybee"><code class="docutils literal notranslate"><span class="pre">to_honeybee()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.model.html#dragonfly_radiance.properties.model.ModelRadianceProperties.ERROR_MAP"><code class="docutils literal notranslate"><span class="pre">ERROR_MAP</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.model.html#dragonfly_radiance.properties.model.ModelRadianceProperties.face_modifiers"><code class="docutils literal notranslate"><span class="pre">face_modifiers</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.model.html#dragonfly_radiance.properties.model.ModelRadianceProperties.global_modifier_set"><code class="docutils literal notranslate"><span class="pre">global_modifier_set</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.model.html#dragonfly_radiance.properties.model.ModelRadianceProperties.host"><code class="docutils literal notranslate"><span class="pre">host</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.model.html#dragonfly_radiance.properties.model.ModelRadianceProperties.modifier_sets"><code class="docutils literal notranslate"><span class="pre">modifier_sets</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.model.html#dragonfly_radiance.properties.model.ModelRadianceProperties.modifiers"><code class="docutils literal notranslate"><span class="pre">modifiers</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.model.html#dragonfly_radiance.properties.model.ModelRadianceProperties.shade_modifiers"><code class="docutils literal notranslate"><span class="pre">shade_modifiers</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.properties.room2d.html">dragonfly_radiance.properties.room2d module</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="../../../dragonfly_radiance.properties.room2d.html#dragonfly_radiance.properties.room2d.Room2DRadianceProperties"><code class="docutils literal notranslate"><span class="pre">Room2DRadianceProperties</span></code></a><ul>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.room2d.html#dragonfly_radiance.properties.room2d.Room2DRadianceProperties.ToString"><code class="docutils literal notranslate"><span class="pre">ToString()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.room2d.html#dragonfly_radiance.properties.room2d.Room2DRadianceProperties.add_grid_parameter"><code class="docutils literal notranslate"><span class="pre">add_grid_parameter()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.room2d.html#dragonfly_radiance.properties.room2d.Room2DRadianceProperties.apply_properties_from_dict"><code class="docutils literal notranslate"><span class="pre">apply_properties_from_dict()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.room2d.html#dragonfly_radiance.properties.room2d.Room2DRadianceProperties.duplicate"><code class="docutils literal notranslate"><span class="pre">duplicate()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.room2d.html#dragonfly_radiance.properties.room2d.Room2DRadianceProperties.from_dict"><code class="docutils literal notranslate"><span class="pre">from_dict()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.room2d.html#dragonfly_radiance.properties.room2d.Room2DRadianceProperties.from_honeybee"><code class="docutils literal notranslate"><span class="pre">from_honeybee()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.room2d.html#dragonfly_radiance.properties.room2d.Room2DRadianceProperties.make_plenum"><code class="docutils literal notranslate"><span class="pre">make_plenum()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.room2d.html#dragonfly_radiance.properties.room2d.Room2DRadianceProperties.remove_grid_parameters"><code class="docutils literal notranslate"><span class="pre">remove_grid_parameters()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.room2d.html#dragonfly_radiance.properties.room2d.Room2DRadianceProperties.to_dict"><code class="docutils literal notranslate"><span class="pre">to_dict()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.room2d.html#dragonfly_radiance.properties.room2d.Room2DRadianceProperties.to_honeybee"><code class="docutils literal notranslate"><span class="pre">to_honeybee()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.room2d.html#dragonfly_radiance.properties.room2d.Room2DRadianceProperties.grid_parameters"><code class="docutils literal notranslate"><span class="pre">grid_parameters</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.room2d.html#dragonfly_radiance.properties.room2d.Room2DRadianceProperties.host"><code class="docutils literal notranslate"><span class="pre">host</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.room2d.html#dragonfly_radiance.properties.room2d.Room2DRadianceProperties.modifier_set"><code class="docutils literal notranslate"><span class="pre">modifier_set</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.properties.story.html">dragonfly_radiance.properties.story module</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="../../../dragonfly_radiance.properties.story.html#dragonfly_radiance.properties.story.StoryRadianceProperties"><code class="docutils literal notranslate"><span class="pre">StoryRadianceProperties</span></code></a><ul>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.story.html#dragonfly_radiance.properties.story.StoryRadianceProperties.ToString"><code class="docutils literal notranslate"><span class="pre">ToString()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.story.html#dragonfly_radiance.properties.story.StoryRadianceProperties.apply_properties_from_dict"><code class="docutils literal notranslate"><span class="pre">apply_properties_from_dict()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.story.html#dragonfly_radiance.properties.story.StoryRadianceProperties.duplicate"><code class="docutils literal notranslate"><span class="pre">duplicate()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.story.html#dragonfly_radiance.properties.story.StoryRadianceProperties.from_dict"><code class="docutils literal notranslate"><span class="pre">from_dict()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.story.html#dragonfly_radiance.properties.story.StoryRadianceProperties.to_dict"><code class="docutils literal notranslate"><span class="pre">to_dict()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.story.html#dragonfly_radiance.properties.story.StoryRadianceProperties.host"><code class="docutils literal notranslate"><span class="pre">host</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.story.html#dragonfly_radiance.properties.story.StoryRadianceProperties.modifier_set"><code class="docutils literal notranslate"><span class="pre">modifier_set</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="../../../dragonfly_radiance.properties.html#module-dragonfly_radiance.properties">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../dragonfly_radiance.html#submodules">Submodules</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html">dragonfly_radiance.gridpar module</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.ExteriorApertureGridParameter"><code class="docutils literal notranslate"><span class="pre">ExteriorApertureGridParameter</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.ExteriorApertureGridParameter.ToString"><code class="docutils literal notranslate"><span class="pre">ToString()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.ExteriorApertureGridParameter.duplicate"><code class="docutils literal notranslate"><span class="pre">duplicate()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.ExteriorApertureGridParameter.from_dict"><code class="docutils literal notranslate"><span class="pre">from_dict()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.ExteriorApertureGridParameter.generate_grid_from_room"><code class="docutils literal notranslate"><span class="pre">generate_grid_from_room()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.ExteriorApertureGridParameter.scale"><code class="docutils literal notranslate"><span class="pre">scale()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.ExteriorApertureGridParameter.to_dict"><code class="docutils literal notranslate"><span class="pre">to_dict()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.ExteriorApertureGridParameter.APERTURE_TYPES"><code class="docutils literal notranslate"><span class="pre">APERTURE_TYPES</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.ExteriorApertureGridParameter.aperture_type"><code class="docutils literal notranslate"><span class="pre">aperture_type</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.ExteriorApertureGridParameter.dimension"><code class="docutils literal notranslate"><span class="pre">dimension</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.ExteriorApertureGridParameter.include_mesh"><code class="docutils literal notranslate"><span class="pre">include_mesh</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.ExteriorApertureGridParameter.offset"><code class="docutils literal notranslate"><span class="pre">offset</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.ExteriorFaceGridParameter"><code class="docutils literal notranslate"><span class="pre">ExteriorFaceGridParameter</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.ExteriorFaceGridParameter.ToString"><code class="docutils literal notranslate"><span class="pre">ToString()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.ExteriorFaceGridParameter.duplicate"><code class="docutils literal notranslate"><span class="pre">duplicate()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.ExteriorFaceGridParameter.from_dict"><code class="docutils literal notranslate"><span class="pre">from_dict()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.ExteriorFaceGridParameter.generate_grid_from_room"><code class="docutils literal notranslate"><span class="pre">generate_grid_from_room()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.ExteriorFaceGridParameter.scale"><code class="docutils literal notranslate"><span class="pre">scale()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.ExteriorFaceGridParameter.to_dict"><code class="docutils literal notranslate"><span class="pre">to_dict()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.ExteriorFaceGridParameter.FACE_TYPES"><code class="docutils literal notranslate"><span class="pre">FACE_TYPES</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.ExteriorFaceGridParameter.dimension"><code class="docutils literal notranslate"><span class="pre">dimension</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.ExteriorFaceGridParameter.face_type"><code class="docutils literal notranslate"><span class="pre">face_type</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.ExteriorFaceGridParameter.include_mesh"><code class="docutils literal notranslate"><span class="pre">include_mesh</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.ExteriorFaceGridParameter.offset"><code class="docutils literal notranslate"><span class="pre">offset</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.ExteriorFaceGridParameter.punched_geometry"><code class="docutils literal notranslate"><span class="pre">punched_geometry</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.RoomGridParameter"><code class="docutils literal notranslate"><span class="pre">RoomGridParameter</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.RoomGridParameter.ToString"><code class="docutils literal notranslate"><span class="pre">ToString()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.RoomGridParameter.duplicate"><code class="docutils literal notranslate"><span class="pre">duplicate()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.RoomGridParameter.from_dict"><code class="docutils literal notranslate"><span class="pre">from_dict()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.RoomGridParameter.generate_grid_from_room"><code class="docutils literal notranslate"><span class="pre">generate_grid_from_room()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.RoomGridParameter.scale"><code class="docutils literal notranslate"><span class="pre">scale()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.RoomGridParameter.to_dict"><code class="docutils literal notranslate"><span class="pre">to_dict()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.RoomGridParameter.dimension"><code class="docutils literal notranslate"><span class="pre">dimension</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.RoomGridParameter.include_mesh"><code class="docutils literal notranslate"><span class="pre">include_mesh</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.RoomGridParameter.offset"><code class="docutils literal notranslate"><span class="pre">offset</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.RoomGridParameter.wall_offset"><code class="docutils literal notranslate"><span class="pre">wall_offset</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.RoomRadialGridParameter"><code class="docutils literal notranslate"><span class="pre">RoomRadialGridParameter</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.RoomRadialGridParameter.ToString"><code class="docutils literal notranslate"><span class="pre">ToString()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.RoomRadialGridParameter.duplicate"><code class="docutils literal notranslate"><span class="pre">duplicate()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.RoomRadialGridParameter.from_dict"><code class="docutils literal notranslate"><span class="pre">from_dict()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.RoomRadialGridParameter.generate_grid_from_room"><code class="docutils literal notranslate"><span class="pre">generate_grid_from_room()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.RoomRadialGridParameter.scale"><code class="docutils literal notranslate"><span class="pre">scale()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.RoomRadialGridParameter.to_dict"><code class="docutils literal notranslate"><span class="pre">to_dict()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.RoomRadialGridParameter.dimension"><code class="docutils literal notranslate"><span class="pre">dimension</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.RoomRadialGridParameter.dir_count"><code class="docutils literal notranslate"><span class="pre">dir_count</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.RoomRadialGridParameter.include_mesh"><code class="docutils literal notranslate"><span class="pre">include_mesh</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.RoomRadialGridParameter.mesh_radius"><code class="docutils literal notranslate"><span class="pre">mesh_radius</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.RoomRadialGridParameter.offset"><code class="docutils literal notranslate"><span class="pre">offset</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.RoomRadialGridParameter.start_vector"><code class="docutils literal notranslate"><span class="pre">start_vector</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.RoomRadialGridParameter.wall_offset"><code class="docutils literal notranslate"><span class="pre">wall_offset</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../dragonfly_radiance.html#module-dragonfly_radiance">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../cli/index.html">CLI Docs</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">dragonfly_radiance</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+              
+            
+            
+            
+            
+              <li class="hidden-sm"></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-4">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../cli/index.html">CLI Docs</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">dragonfly_radiance</a></li>
+</ul>
+
+        </div>
+      </div>
+    <div class="body col-md-8 content" role="main">
+      
+  <h1>Source code for dragonfly_radiance.properties.model</h1><div class="highlight"><pre>
+<span></span><span class="c1"># coding=utf-8</span>
+<span class="sd">&quot;&quot;&quot;Model Radiance Properties.&quot;&quot;&quot;</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">itertools</span><span class="w"> </span><span class="kn">import</span> <span class="n">izip</span> <span class="k">as</span> <span class="nb">zip</span>  <span class="c1"># python 2</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="k">pass</span>   <span class="c1"># python 3</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">honeybee.checkdup</span><span class="w"> </span><span class="kn">import</span> <span class="n">check_duplicate_identifiers</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">honeybee.extensionutil</span><span class="w"> </span><span class="kn">import</span> <span class="n">room_extension_dicts</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">honeybee_radiance.properties.model</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">hb_model_properties</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">honeybee_radiance.lib.modifiersets</span><span class="w"> </span><span class="kn">import</span> <span class="n">generic_modifier_set_visible</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">honeybee_radiance.lib.modifiers</span><span class="w"> </span><span class="kn">import</span> <span class="n">generic_context</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">dragonfly.extensionutil</span><span class="w"> </span><span class="kn">import</span> <span class="n">model_extension_dicts</span>
+
+
+<div class="viewcode-block" id="ModelRadianceProperties">
+<a class="viewcode-back" href="../../../dragonfly_radiance.properties.model.html#dragonfly_radiance.properties.model.ModelRadianceProperties">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">ModelRadianceProperties</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Radiance Properties for Dragonfly Model.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        host: A dragonfly_core Model object that hosts these properties.</span>
+
+<span class="sd">    Properties:</span>
+<span class="sd">        * host</span>
+<span class="sd">        * modifiers</span>
+<span class="sd">        * shade_modifiers</span>
+<span class="sd">        * modifier_sets</span>
+<span class="sd">        * global_modifier_set</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># dictionary mapping validation error codes to a corresponding check function</span>
+    <span class="n">ERROR_MAP</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;010001&#39;</span><span class="p">:</span> <span class="s1">&#39;check_duplicate_modifier_identifiers&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;010002&#39;</span><span class="p">:</span> <span class="s1">&#39;check_duplicate_modifier_set_identifiers&#39;</span>
+    <span class="p">}</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">host</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize Model Radiance properties.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_host</span> <span class="o">=</span> <span class="n">host</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">host</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the Model object hosting these properties.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_host</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">modifiers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;List of all unique modifiers contained within the model.</span>
+
+<span class="sd">        This includes modifiers across all Room2Ds, Stories, and Building</span>
+<span class="sd">        ModifierSets but it does NOT include the Honeybee generic default</span>
+<span class="sd">        modifier set.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">bldg_mods</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">mod_set</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">modifier_sets</span><span class="p">:</span>
+            <span class="n">bldg_mods</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">mod_set</span><span class="o">.</span><span class="n">modified_modifiers_unique</span><span class="p">)</span>
+        <span class="n">all_mods</span> <span class="o">=</span> <span class="n">bldg_mods</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">face_modifiers</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">shade_modifiers</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">all_mods</span><span class="p">))</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">face_modifiers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get a list of all unique modifiers assigned to Faces, Apertures and Doors.</span>
+
+<span class="sd">        These objects only exist under the Building.room_3ds property.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">modifiers</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">bldg</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">buildings</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">face</span> <span class="ow">in</span> <span class="n">bldg</span><span class="o">.</span><span class="n">room_3d_faces</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_check_and_add_obj_modifier</span><span class="p">(</span><span class="n">face</span><span class="p">,</span> <span class="n">modifiers</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">ap</span> <span class="ow">in</span> <span class="n">face</span><span class="o">.</span><span class="n">apertures</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_check_and_add_obj_modifier</span><span class="p">(</span><span class="n">ap</span><span class="p">,</span> <span class="n">modifiers</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">dr</span> <span class="ow">in</span> <span class="n">face</span><span class="o">.</span><span class="n">doors</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_check_and_add_obj_modifier</span><span class="p">(</span><span class="n">dr</span><span class="p">,</span> <span class="n">modifiers</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">modifiers</span><span class="p">))</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">shade_modifiers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;A list of all unique modifiers assigned to ContextShades in the model.&quot;&quot;&quot;</span>
+        <span class="n">modifiers</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">shade</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">context_shades</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_check_and_add_obj_modifier</span><span class="p">(</span><span class="n">shade</span><span class="p">,</span> <span class="n">modifiers</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">bldg</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">buildings</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">shd</span> <span class="ow">in</span> <span class="n">bldg</span><span class="o">.</span><span class="n">room_3d_shades</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_check_and_add_obj_modifier</span><span class="p">(</span><span class="n">shd</span><span class="p">,</span> <span class="n">modifiers</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">modifiers</span><span class="p">))</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">modifier_sets</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;A list of all unique Building-Assigned ModifierSets in the Model.</span>
+
+<span class="sd">        Note that this includes ModifierSets assigned to individual Stories and</span>
+<span class="sd">        Room2Ds in the Building.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">modifier_sets</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">bldg</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">buildings</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_check_and_add_obj_mod_set</span><span class="p">(</span><span class="n">bldg</span><span class="p">,</span> <span class="n">modifier_sets</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">story</span> <span class="ow">in</span> <span class="n">bldg</span><span class="o">.</span><span class="n">unique_stories</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_check_and_add_obj_mod_set</span><span class="p">(</span><span class="n">story</span><span class="p">,</span> <span class="n">modifier_sets</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">room</span> <span class="ow">in</span> <span class="n">story</span><span class="o">.</span><span class="n">room_2ds</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_check_and_add_obj_mod_set</span><span class="p">(</span><span class="n">room</span><span class="p">,</span> <span class="n">modifier_sets</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">room</span> <span class="ow">in</span> <span class="n">bldg</span><span class="o">.</span><span class="n">room_3ds</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_check_and_add_obj_mod_set</span><span class="p">(</span><span class="n">room</span><span class="p">,</span> <span class="n">modifier_sets</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">modifier_sets</span><span class="p">))</span>  <span class="c1"># catch equivalent modifier sets</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">global_modifier_set</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;The global radiance modifier set.</span>
+
+<span class="sd">        This is what is used whenever there is no modifier_set assigned to a</span>
+<span class="sd">        Room2D, a parent Story, or a parent Building.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">generic_modifier_set_visible</span>
+
+<div class="viewcode-block" id="ModelRadianceProperties.check_for_extension">
+<a class="viewcode-back" href="../../../dragonfly_radiance.properties.model.html#dragonfly_radiance.properties.model.ModelRadianceProperties.check_for_extension">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">check_for_extension</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">raise_exception</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">detailed</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Check that the Model is valid for Radiance simulation.</span>
+
+<span class="sd">        This process includes all relevant dragonfly-core checks as well as checks</span>
+<span class="sd">        that apply only for Radiance.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            raise_exception: Boolean to note whether a ValueError should be raised</span>
+<span class="sd">                if any errors are found. If False, this method will simply</span>
+<span class="sd">                return a text string with all errors that were found. (Default: True).</span>
+<span class="sd">            detailed: Boolean for whether the returned object is a detailed list of</span>
+<span class="sd">                dicts with error info or a string with a message. (Default: False).</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            A text string with all errors that were found or a list if detailed is True.</span>
+<span class="sd">            This string (or list) will be empty if no errors were found.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># set up defaults to ensure the method runs correctly</span>
+        <span class="n">detailed</span> <span class="o">=</span> <span class="kc">False</span> <span class="k">if</span> <span class="n">raise_exception</span> <span class="k">else</span> <span class="n">detailed</span>
+        <span class="n">msgs</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">tol</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">tolerance</span>
+        <span class="n">ang_tol</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">angle_tolerance</span>
+
+        <span class="c1"># perform checks for duplicate identifiers, which might mess with other checks</span>
+        <span class="n">msgs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">check_all_duplicate_identifiers</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="n">detailed</span><span class="p">))</span>
+
+        <span class="c1"># perform checks for key dragonfly model schema rules</span>
+        <span class="n">msgs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">check_degenerate_room_2ds</span><span class="p">(</span><span class="n">tol</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="n">detailed</span><span class="p">))</span>
+        <span class="n">msgs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">check_self_intersecting_room_2ds</span><span class="p">(</span><span class="n">tol</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="n">detailed</span><span class="p">))</span>
+        <span class="n">msgs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">check_plenum_depths</span><span class="p">(</span><span class="n">tol</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="n">detailed</span><span class="p">))</span>
+        <span class="n">msgs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">check_window_parameters_valid</span><span class="p">(</span><span class="n">tol</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="n">detailed</span><span class="p">))</span>
+        <span class="n">msgs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">check_no_room2d_overlaps</span><span class="p">(</span><span class="n">tol</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="n">detailed</span><span class="p">))</span>
+        <span class="n">msgs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">check_collisions_between_stories</span><span class="p">(</span><span class="n">tol</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="n">detailed</span><span class="p">))</span>
+        <span class="n">msgs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">check_roofs_above_rooms</span><span class="p">(</span><span class="n">tol</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="n">detailed</span><span class="p">))</span>
+        <span class="n">msgs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">check_room2d_floor_heights_valid</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="n">detailed</span><span class="p">))</span>
+        <span class="n">msgs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">check_all_room3d</span><span class="p">(</span><span class="n">tol</span><span class="p">,</span> <span class="n">ang_tol</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="n">detailed</span><span class="p">))</span>
+
+        <span class="c1"># output a final report of errors or raise an exception</span>
+        <span class="n">full_msgs</span> <span class="o">=</span> <span class="p">[</span><span class="n">msg</span> <span class="k">for</span> <span class="n">msg</span> <span class="ow">in</span> <span class="n">msgs</span> <span class="k">if</span> <span class="n">msg</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">detailed</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[</span><span class="n">m</span> <span class="k">for</span> <span class="n">msg</span> <span class="ow">in</span> <span class="n">full_msgs</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">msg</span><span class="p">]</span>
+        <span class="n">full_msg</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">full_msgs</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">raise_exception</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">full_msgs</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">full_msg</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">full_msg</span></div>
+
+
+<div class="viewcode-block" id="ModelRadianceProperties.check_generic">
+<a class="viewcode-back" href="../../../dragonfly_radiance.properties.model.html#dragonfly_radiance.properties.model.ModelRadianceProperties.check_generic">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">check_generic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">raise_exception</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">detailed</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Check generic of the aspects of the Model radiance properties.</span>
+
+<span class="sd">        This includes checks for everything except duplicate identifiers for</span>
+<span class="sd">        modifiers and modifier sets. Typically, these checks just add to the</span>
+<span class="sd">        validation time without providing useful information since extension</span>
+<span class="sd">        objects with duplicate IDs are lost during HBJSON serialization.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            raise_exception: Boolean to note whether a ValueError should be raised</span>
+<span class="sd">                if any errors are found. If False, this method will simply</span>
+<span class="sd">                return a text string with all errors that were found.</span>
+<span class="sd">            detailed: Boolean for whether the returned object is a detailed list of</span>
+<span class="sd">                dicts with error info or a string with a message. (Default: False).</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            A text string with all errors that were found or a list if detailed is True.</span>
+<span class="sd">            This string (or list) will be empty if no errors were found.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># set up defaults to ensure the method runs correctly</span>
+        <span class="n">detailed</span> <span class="o">=</span> <span class="kc">False</span> <span class="k">if</span> <span class="n">raise_exception</span> <span class="k">else</span> <span class="n">detailed</span>
+        <span class="n">msgs</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="c1"># perform checks for specific radiance simulation rules</span>
+        <span class="c1"># output a final report of errors or raise an exception</span>
+        <span class="n">full_msgs</span> <span class="o">=</span> <span class="p">[</span><span class="n">msg</span> <span class="k">for</span> <span class="n">msg</span> <span class="ow">in</span> <span class="n">msgs</span> <span class="k">if</span> <span class="n">msg</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">detailed</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[</span><span class="n">m</span> <span class="k">for</span> <span class="n">msg</span> <span class="ow">in</span> <span class="n">full_msgs</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">msg</span><span class="p">]</span>
+        <span class="n">full_msg</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">full_msgs</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">raise_exception</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">full_msgs</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">full_msg</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">full_msg</span></div>
+
+
+<div class="viewcode-block" id="ModelRadianceProperties.check_all">
+<a class="viewcode-back" href="../../../dragonfly_radiance.properties.model.html#dragonfly_radiance.properties.model.ModelRadianceProperties.check_all">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">check_all</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">raise_exception</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">detailed</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Check all of the aspects of the Model radiance properties.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            raise_exception: Boolean to note whether a ValueError should be raised</span>
+<span class="sd">                if any errors are found. If False, this method will simply</span>
+<span class="sd">                return a text string with all errors that were found.</span>
+<span class="sd">            detailed: Boolean for whether the returned object is a detailed list of</span>
+<span class="sd">                dicts with error info or a string with a message. (Default: False).</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            A text string with all errors that were found or a list if detailed is True.</span>
+<span class="sd">            This string (or list) will be empty if no errors were found.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># set up defaults to ensure the method runs correctly</span>
+        <span class="n">detailed</span> <span class="o">=</span> <span class="kc">False</span> <span class="k">if</span> <span class="n">raise_exception</span> <span class="k">else</span> <span class="n">detailed</span>
+        <span class="n">msgs</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="c1"># perform checks for duplicate identifiers</span>
+        <span class="n">msgs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">check_all_duplicate_identifiers</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="n">detailed</span><span class="p">))</span>
+        <span class="c1"># perform checks for specific radiance simulation rules</span>
+        <span class="c1"># output a final report of errors or raise an exception</span>
+        <span class="n">full_msgs</span> <span class="o">=</span> <span class="p">[</span><span class="n">msg</span> <span class="k">for</span> <span class="n">msg</span> <span class="ow">in</span> <span class="n">msgs</span> <span class="k">if</span> <span class="n">msg</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">detailed</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[</span><span class="n">m</span> <span class="k">for</span> <span class="n">msg</span> <span class="ow">in</span> <span class="n">full_msgs</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">msg</span><span class="p">]</span>
+        <span class="n">full_msg</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">full_msgs</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">raise_exception</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">full_msgs</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">full_msg</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">full_msg</span></div>
+
+
+<div class="viewcode-block" id="ModelRadianceProperties.check_all_duplicate_identifiers">
+<a class="viewcode-back" href="../../../dragonfly_radiance.properties.model.html#dragonfly_radiance.properties.model.ModelRadianceProperties.check_all_duplicate_identifiers">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">check_all_duplicate_identifiers</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">raise_exception</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">detailed</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Check that there are no duplicate identifiers for any geometry objects.</span>
+
+<span class="sd">        This includes Rooms, Faces, Apertures, Doors, Shades, and ShadeMeshes.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            raise_exception: Boolean to note whether a ValueError should be raised</span>
+<span class="sd">                if any Model errors are found. If False, this method will simply</span>
+<span class="sd">                return a text string with all errors that were found. (Default: True).</span>
+<span class="sd">            detailed: Boolean for whether the returned object is a detailed list of</span>
+<span class="sd">                dicts with error info or a string with a message. (Default: False).</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            A text string with all errors that were found or a list if detailed is True.</span>
+<span class="sd">            This string (or list) will be empty if no errors were found.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># set up defaults to ensure the method runs correctly</span>
+        <span class="n">detailed</span> <span class="o">=</span> <span class="kc">False</span> <span class="k">if</span> <span class="n">raise_exception</span> <span class="k">else</span> <span class="n">detailed</span>
+        <span class="n">msgs</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="c1"># perform checks for duplicate identifiers</span>
+        <span class="n">msgs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">check_duplicate_modifier_identifiers</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="n">detailed</span><span class="p">))</span>
+        <span class="n">msgs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">check_duplicate_modifier_set_identifiers</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="n">detailed</span><span class="p">))</span>
+        <span class="c1"># output a final report of errors or raise an exception</span>
+        <span class="n">full_msgs</span> <span class="o">=</span> <span class="p">[</span><span class="n">msg</span> <span class="k">for</span> <span class="n">msg</span> <span class="ow">in</span> <span class="n">msgs</span> <span class="k">if</span> <span class="n">msg</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">detailed</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[</span><span class="n">m</span> <span class="k">for</span> <span class="n">msg</span> <span class="ow">in</span> <span class="n">full_msgs</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">msg</span><span class="p">]</span>
+        <span class="n">full_msg</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">full_msgs</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">raise_exception</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">full_msgs</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">full_msg</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">full_msg</span></div>
+
+
+<div class="viewcode-block" id="ModelRadianceProperties.check_duplicate_modifier_identifiers">
+<a class="viewcode-back" href="../../../dragonfly_radiance.properties.model.html#dragonfly_radiance.properties.model.ModelRadianceProperties.check_duplicate_modifier_identifiers">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">check_duplicate_modifier_identifiers</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">raise_exception</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">detailed</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Check that there are no duplicate Modifier identifiers in the model.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            raise_exception: Boolean to note whether a ValueError should be raised</span>
+<span class="sd">                if duplicate identifiers are found. (Default: True).</span>
+<span class="sd">            detailed: Boolean for whether the returned object is a detailed list of</span>
+<span class="sd">                dicts with error info or a string with a message. (Default: False).</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            A string with the message or a list with a dictionary if detailed is True.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">check_duplicate_identifiers</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">modifiers</span><span class="p">,</span> <span class="n">raise_exception</span><span class="p">,</span> <span class="s1">&#39;Radiance Modifier&#39;</span><span class="p">,</span>
+            <span class="n">detailed</span><span class="p">,</span> <span class="s1">&#39;010001&#39;</span><span class="p">,</span> <span class="s1">&#39;Radiance&#39;</span><span class="p">,</span> <span class="n">error_type</span><span class="o">=</span><span class="s1">&#39;Duplicate Modifier Identifier&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ModelRadianceProperties.check_duplicate_modifier_set_identifiers">
+<a class="viewcode-back" href="../../../dragonfly_radiance.properties.model.html#dragonfly_radiance.properties.model.ModelRadianceProperties.check_duplicate_modifier_set_identifiers">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">check_duplicate_modifier_set_identifiers</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span> <span class="n">raise_exception</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">detailed</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Check that there are no duplicate ModifierSet identifiers in the model.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            raise_exception: Boolean to note whether a ValueError should be raised</span>
+<span class="sd">                if duplicate identifiers are found. (Default: True).</span>
+<span class="sd">            detailed: Boolean for whether the returned object is a detailed list of</span>
+<span class="sd">                dicts with error info or a string with a message. (Default: False).</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            A string with the message or a list with a dictionary if detailed is True.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">check_duplicate_identifiers</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">modifier_sets</span><span class="p">,</span> <span class="n">raise_exception</span><span class="p">,</span> <span class="s1">&#39;ModifierSet&#39;</span><span class="p">,</span>
+            <span class="n">detailed</span><span class="p">,</span> <span class="s1">&#39;010002&#39;</span><span class="p">,</span> <span class="s1">&#39;Radiance&#39;</span><span class="p">,</span>
+            <span class="n">error_type</span><span class="o">=</span><span class="s1">&#39;Duplicate ModifierSet Identifier&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ModelRadianceProperties.apply_properties_from_dict">
+<a class="viewcode-back" href="../../../dragonfly_radiance.properties.model.html#dragonfly_radiance.properties.model.ModelRadianceProperties.apply_properties_from_dict">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">apply_properties_from_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Apply the radiance properties of a dictionary to the host Model of this object.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            data: A dictionary representation of an entire dragonfly-core Model.</span>
+<span class="sd">                Note that this dictionary must have ModelRadianceProperties in order</span>
+<span class="sd">                for this method to successfully apply the radiance properties.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">assert</span> <span class="s1">&#39;radiance&#39;</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">],</span> \
+            <span class="s1">&#39;Dictionary possesses no ModelRadianceProperties.&#39;</span>
+        <span class="n">modifiers</span><span class="p">,</span> <span class="n">modifier_sets</span> <span class="o">=</span> \
+            <span class="n">hb_model_properties</span><span class="o">.</span><span class="n">ModelRadianceProperties</span><span class="o">.</span><span class="n">load_properties_from_dict</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+        <span class="c1"># collect lists of radiance property dictionaries</span>
+        <span class="n">building_e_dicts</span><span class="p">,</span> <span class="n">story_e_dicts</span><span class="p">,</span> <span class="n">room2d_e_dicts</span><span class="p">,</span> <span class="n">context_e_dicts</span> <span class="o">=</span> \
+            <span class="n">model_extension_dicts</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s1">&#39;radiance&#39;</span><span class="p">,</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[])</span>
+
+        <span class="c1"># apply radiance properties to objects using the radiance property dictionaries</span>
+        <span class="k">for</span> <span class="n">bldg</span><span class="p">,</span> <span class="n">b_dict</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">buildings</span><span class="p">,</span> <span class="n">building_e_dicts</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">b_dict</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">bldg</span><span class="o">.</span><span class="n">properties</span><span class="o">.</span><span class="n">radiance</span><span class="o">.</span><span class="n">apply_properties_from_dict</span><span class="p">(</span>
+                    <span class="n">b_dict</span><span class="p">,</span> <span class="n">modifier_sets</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">bldg</span><span class="o">.</span><span class="n">has_room_3ds</span> <span class="ow">and</span> <span class="n">b_dict</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="s1">&#39;room_3ds&#39;</span> <span class="ow">in</span> <span class="n">b_dict</span> <span class="ow">and</span> \
+                    <span class="n">b_dict</span><span class="p">[</span><span class="s1">&#39;room_3ds&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">room_e_dicts</span><span class="p">,</span> <span class="n">face_e_dicts</span><span class="p">,</span> <span class="n">shd_e_dicts</span><span class="p">,</span> <span class="n">ap_e_dicts</span><span class="p">,</span> <span class="n">dr_e_dicts</span> <span class="o">=</span> \
+                    <span class="n">room_extension_dicts</span><span class="p">(</span><span class="n">b_dict</span><span class="p">[</span><span class="s1">&#39;room_3ds&#39;</span><span class="p">],</span> <span class="s1">&#39;radiance&#39;</span><span class="p">,</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[])</span>
+                <span class="k">for</span> <span class="n">room</span><span class="p">,</span> <span class="n">r_dict</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">bldg</span><span class="o">.</span><span class="n">room_3ds</span><span class="p">,</span> <span class="n">room_e_dicts</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="n">r_dict</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                        <span class="n">room</span><span class="o">.</span><span class="n">properties</span><span class="o">.</span><span class="n">radiance</span><span class="o">.</span><span class="n">apply_properties_from_dict</span><span class="p">(</span>
+                            <span class="n">r_dict</span><span class="p">,</span> <span class="n">modifier_sets</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">face</span><span class="p">,</span> <span class="n">f_dict</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">bldg</span><span class="o">.</span><span class="n">room_3d_faces</span><span class="p">,</span> <span class="n">face_e_dicts</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="n">f_dict</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                        <span class="n">face</span><span class="o">.</span><span class="n">properties</span><span class="o">.</span><span class="n">radiance</span><span class="o">.</span><span class="n">apply_properties_from_dict</span><span class="p">(</span>
+                            <span class="n">f_dict</span><span class="p">,</span> <span class="n">modifiers</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">aperture</span><span class="p">,</span> <span class="n">a_dict</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">bldg</span><span class="o">.</span><span class="n">room_3d_apertures</span><span class="p">,</span> <span class="n">ap_e_dicts</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="n">a_dict</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                        <span class="n">aperture</span><span class="o">.</span><span class="n">properties</span><span class="o">.</span><span class="n">radiance</span><span class="o">.</span><span class="n">apply_properties_from_dict</span><span class="p">(</span>
+                            <span class="n">a_dict</span><span class="p">,</span> <span class="n">modifiers</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">door</span><span class="p">,</span> <span class="n">d_dict</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">bldg</span><span class="o">.</span><span class="n">room_3d_doors</span><span class="p">,</span> <span class="n">dr_e_dicts</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="n">d_dict</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                        <span class="n">door</span><span class="o">.</span><span class="n">properties</span><span class="o">.</span><span class="n">radiance</span><span class="o">.</span><span class="n">apply_properties_from_dict</span><span class="p">(</span>
+                            <span class="n">d_dict</span><span class="p">,</span> <span class="n">modifiers</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">shade</span><span class="p">,</span> <span class="n">s_dict</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">bldg</span><span class="o">.</span><span class="n">room_3d_shades</span><span class="p">,</span> <span class="n">shd_e_dicts</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="n">s_dict</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                        <span class="n">shade</span><span class="o">.</span><span class="n">properties</span><span class="o">.</span><span class="n">radiance</span><span class="o">.</span><span class="n">apply_properties_from_dict</span><span class="p">(</span>
+                            <span class="n">s_dict</span><span class="p">,</span> <span class="n">modifiers</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">story</span><span class="p">,</span> <span class="n">s_dict</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">stories</span><span class="p">,</span> <span class="n">story_e_dicts</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">s_dict</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">story</span><span class="o">.</span><span class="n">properties</span><span class="o">.</span><span class="n">radiance</span><span class="o">.</span><span class="n">apply_properties_from_dict</span><span class="p">(</span>
+                    <span class="n">s_dict</span><span class="p">,</span> <span class="n">modifier_sets</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">room</span><span class="p">,</span> <span class="n">r_dict</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">room_2ds</span><span class="p">,</span> <span class="n">room2d_e_dicts</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">r_dict</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">room</span><span class="o">.</span><span class="n">properties</span><span class="o">.</span><span class="n">radiance</span><span class="o">.</span><span class="n">apply_properties_from_dict</span><span class="p">(</span>
+                    <span class="n">r_dict</span><span class="p">,</span> <span class="n">modifier_sets</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">shade</span><span class="p">,</span> <span class="n">s_dict</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">context_shades</span><span class="p">,</span> <span class="n">context_e_dicts</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">s_dict</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">shade</span><span class="o">.</span><span class="n">properties</span><span class="o">.</span><span class="n">radiance</span><span class="o">.</span><span class="n">apply_properties_from_dict</span><span class="p">(</span><span class="n">s_dict</span><span class="p">,</span> <span class="n">modifiers</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ModelRadianceProperties.to_dict">
+<a class="viewcode-back" href="../../../dragonfly_radiance.properties.model.html#dragonfly_radiance.properties.model.ModelRadianceProperties.to_dict">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return Model radiance properties as a dictionary.&quot;&quot;&quot;</span>
+        <span class="n">base</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;radiance&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;ModelRadianceProperties&#39;</span><span class="p">}}</span>
+
+        <span class="c1"># add the global modifier set to the dictionary</span>
+        <span class="n">gs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">global_modifier_set</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(</span><span class="n">abridged</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">none_for_defaults</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">gs</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;GlobalModifierSet&#39;</span>
+        <span class="k">del</span> <span class="n">gs</span><span class="p">[</span><span class="s1">&#39;identifier&#39;</span><span class="p">]</span>
+        <span class="n">g_mods</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">global_modifier_set</span><span class="o">.</span><span class="n">modifiers_unique</span>
+        <span class="n">gs</span><span class="p">[</span><span class="s1">&#39;modifiers&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">mod</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span> <span class="k">for</span> <span class="n">mod</span> <span class="ow">in</span> <span class="n">g_mods</span><span class="p">]</span>
+        <span class="n">gs</span><span class="p">[</span><span class="s1">&#39;context_modifier&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">generic_context</span><span class="o">.</span><span class="n">identifier</span>
+        <span class="n">gs</span><span class="p">[</span><span class="s1">&#39;modifiers&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">generic_context</span><span class="o">.</span><span class="n">to_dict</span><span class="p">())</span>
+        <span class="n">base</span><span class="p">[</span><span class="s1">&#39;radiance&#39;</span><span class="p">][</span><span class="s1">&#39;global_modifier_set&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">gs</span>
+
+        <span class="c1"># add all ModifierSets to the dictionary</span>
+        <span class="n">base</span><span class="p">[</span><span class="s1">&#39;radiance&#39;</span><span class="p">][</span><span class="s1">&#39;modifier_sets&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">modifier_sets</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">modifier_sets</span>
+        <span class="k">for</span> <span class="n">mod_set</span> <span class="ow">in</span> <span class="n">modifier_sets</span><span class="p">:</span>
+            <span class="n">base</span><span class="p">[</span><span class="s1">&#39;radiance&#39;</span><span class="p">][</span><span class="s1">&#39;modifier_sets&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mod_set</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(</span><span class="n">abridged</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+
+        <span class="c1"># add all unique Modifiers to the dictionary</span>
+        <span class="n">room_mods</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">mod_set</span> <span class="ow">in</span> <span class="n">modifier_sets</span><span class="p">:</span>
+            <span class="n">room_mods</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">mod_set</span><span class="o">.</span><span class="n">modified_modifiers_unique</span><span class="p">)</span>
+        <span class="n">all_mods</span> <span class="o">=</span> <span class="n">room_mods</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">face_modifiers</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">shade_modifiers</span>
+        <span class="n">modifiers</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">all_mods</span><span class="p">))</span>
+        <span class="n">base</span><span class="p">[</span><span class="s1">&#39;radiance&#39;</span><span class="p">][</span><span class="s1">&#39;modifiers&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">mod</span> <span class="ow">in</span> <span class="n">modifiers</span><span class="p">:</span>
+            <span class="n">base</span><span class="p">[</span><span class="s1">&#39;radiance&#39;</span><span class="p">][</span><span class="s1">&#39;modifiers&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mod</span><span class="o">.</span><span class="n">to_dict</span><span class="p">())</span>
+
+        <span class="k">return</span> <span class="n">base</span></div>
+
+
+<div class="viewcode-block" id="ModelRadianceProperties.to_honeybee">
+<a class="viewcode-back" href="../../../dragonfly_radiance.properties.model.html#dragonfly_radiance.properties.model.ModelRadianceProperties.to_honeybee">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">to_honeybee</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_host</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get a honeybee version of this object.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            new_host: A honeybee-core Model object that will host these properties.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">hb_rad_props</span> <span class="o">=</span> <span class="n">hb_model_properties</span><span class="o">.</span><span class="n">ModelRadianceProperties</span><span class="p">(</span><span class="n">new_host</span><span class="p">)</span>
+        <span class="c1"># gather all of the sensor grid parameters across the model</span>
+        <span class="n">sg_dict</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">rm_2d</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">room_2ds</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">rm_2d</span><span class="o">.</span><span class="n">properties</span><span class="o">.</span><span class="n">radiance</span><span class="o">.</span><span class="n">_grid_parameters</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">sg_dict</span><span class="p">[</span><span class="n">rm_2d</span><span class="o">.</span><span class="n">identifier</span><span class="p">]</span> <span class="o">=</span> <span class="n">rm_2d</span><span class="o">.</span><span class="n">properties</span><span class="o">.</span><span class="n">radiance</span><span class="o">.</span><span class="n">_grid_parameters</span>
+        <span class="c1"># generate and assign sensor grids to the rooms of the new_host</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sg_dict</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">sensor_grids</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">rm_id</span><span class="p">,</span> <span class="n">g_par</span> <span class="ow">in</span> <span class="n">sg_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="k">for</span> <span class="n">room</span> <span class="ow">in</span> <span class="n">new_host</span><span class="o">.</span><span class="n">rooms</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">room</span><span class="o">.</span><span class="n">identifier</span> <span class="o">==</span> <span class="n">rm_id</span><span class="p">:</span>
+                        <span class="k">for</span> <span class="n">gp</span> <span class="ow">in</span> <span class="n">g_par</span><span class="p">:</span>
+                            <span class="n">sg</span> <span class="o">=</span> <span class="n">gp</span><span class="o">.</span><span class="n">generate_grid_from_room</span><span class="p">(</span><span class="n">room</span><span class="p">)</span>
+                            <span class="k">if</span> <span class="n">sg</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                                <span class="n">sensor_grids</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sg</span><span class="p">)</span>
+                        <span class="k">break</span>
+            <span class="n">hb_rad_props</span><span class="o">.</span><span class="n">sensor_grids</span> <span class="o">=</span> <span class="n">sensor_grids</span>
+        <span class="k">return</span> <span class="n">hb_rad_props</span></div>
+
+
+<div class="viewcode-block" id="ModelRadianceProperties.duplicate">
+<a class="viewcode-back" href="../../../dragonfly_radiance.properties.model.html#dragonfly_radiance.properties.model.ModelRadianceProperties.duplicate">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">duplicate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_host</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get a copy of this Model.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            new_host: A new Model object that hosts these properties.</span>
+<span class="sd">                If None, the properties will be duplicated with the same host.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">_host</span> <span class="o">=</span> <span class="n">new_host</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_host</span>
+        <span class="k">return</span> <span class="n">ModelRadianceProperties</span><span class="p">(</span><span class="n">_host</span><span class="p">)</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_check_and_add_obj_modifier</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">modifiers</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Check if a modifier is assigned to an object and add it to a list.&quot;&quot;&quot;</span>
+        <span class="n">mod</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">properties</span><span class="o">.</span><span class="n">radiance</span><span class="o">.</span><span class="n">_modifier</span>
+        <span class="k">if</span> <span class="n">mod</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_instance_in_array</span><span class="p">(</span><span class="n">mod</span><span class="p">,</span> <span class="n">modifiers</span><span class="p">):</span>
+                <span class="n">modifiers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mod</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_check_and_add_obj_mod_set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">modifier_sets</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Check if a modifier set is assigned to an object and add it to a list.&quot;&quot;&quot;</span>
+        <span class="n">m_set</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">properties</span><span class="o">.</span><span class="n">radiance</span><span class="o">.</span><span class="n">_modifier_set</span>
+        <span class="k">if</span> <span class="n">m_set</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_instance_in_array</span><span class="p">(</span><span class="n">m_set</span><span class="p">,</span> <span class="n">modifier_sets</span><span class="p">):</span>
+                <span class="n">modifier_sets</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">m_set</span><span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_instance_in_array</span><span class="p">(</span><span class="n">object_instance</span><span class="p">,</span> <span class="n">object_array</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Check if a specific object instance is already in an array.</span>
+
+<span class="sd">        This can be much faster than  `if object_instance in object_array`</span>
+<span class="sd">        when you expect to be testing a lot of the same instance of an object for</span>
+<span class="sd">        inclusion in an array since the builtin method uses an == operator to</span>
+<span class="sd">        test inclusion.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">object_array</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">val</span> <span class="ow">is</span> <span class="n">object_instance</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+<div class="viewcode-block" id="ModelRadianceProperties.ToString">
+<a class="viewcode-back" href="../../../dragonfly_radiance.properties.model.html#dragonfly_radiance.properties.model.ModelRadianceProperties.ToString">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">ToString</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__repr__</span><span class="p">()</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">&#39;Model Radiance Properties: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">identifier</span><span class="p">)</span></div>
+
+</pre></div>
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2026, Ladybug Tools.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 8.0.2.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

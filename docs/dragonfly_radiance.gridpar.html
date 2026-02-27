@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>dragonfly_radiance.gridpar module &#8212; dragonfly-radiance  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/bootstrap-sphinx.css?v=0bf093e7" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=0b9525ea" />
+    <script src="_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="dragonfly_radiance.properties.story module" href="dragonfly_radiance.properties.story.html" />
+<link rel="icon" type="image/x-icon" href="https://github.com/ladybug-tools/artwork/raw/refs/heads/master/icons_bugs/ico/dragonfly.ico">
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="_static/bootstrap-sphinx.js "></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          dragonfly-radiance</a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="cli/index.html">CLI Docs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cli/index.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cli/index.html#commands">Commands</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cli/translate.html">translate</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cli/translate.html#dragonfly-radiance-translate">dragonfly-radiance translate</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="cli/translate.html#dragonfly-radiance-translate-model-to-rad">model-to-rad</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cli/translate.html#dragonfly-radiance-translate-model-to-rad-folder">model-to-rad-folder</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">dragonfly_radiance</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="dragonfly_radiance.html">dragonfly_radiance package</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="dragonfly_radiance.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="dragonfly_radiance.cli.html">dragonfly_radiance.cli package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="dragonfly_radiance.cli.html#submodules">Submodules</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="dragonfly_radiance.cli.translate.html">dragonfly_radiance.cli.translate module</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="dragonfly_radiance.cli.translate.html#dragonfly_radiance.cli.translate.model_to_rad"><code class="docutils literal notranslate"><span class="pre">model_to_rad()</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="dragonfly_radiance.cli.translate.html#dragonfly_radiance.cli.translate.model_to_rad_folder"><code class="docutils literal notranslate"><span class="pre">model_to_rad_folder()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="dragonfly_radiance.cli.html#module-dragonfly_radiance.cli">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="dragonfly_radiance.properties.html">dragonfly_radiance.properties package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="dragonfly_radiance.properties.html#submodules">Submodules</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="dragonfly_radiance.properties.building.html">dragonfly_radiance.properties.building module</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="dragonfly_radiance.properties.building.html#dragonfly_radiance.properties.building.BuildingRadianceProperties"><code class="docutils literal notranslate"><span class="pre">BuildingRadianceProperties</span></code></a><ul>
+<li class="toctree-l8"><a class="reference internal" href="dragonfly_radiance.properties.building.html#dragonfly_radiance.properties.building.BuildingRadianceProperties.ToString"><code class="docutils literal notranslate"><span class="pre">ToString()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="dragonfly_radiance.properties.building.html#dragonfly_radiance.properties.building.BuildingRadianceProperties.add_grid_parameter"><code class="docutils literal notranslate"><span class="pre">add_grid_parameter()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="dragonfly_radiance.properties.building.html#dragonfly_radiance.properties.building.BuildingRadianceProperties.apply_properties_from_dict"><code class="docutils literal notranslate"><span class="pre">apply_properties_from_dict()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="dragonfly_radiance.properties.building.html#dragonfly_radiance.properties.building.BuildingRadianceProperties.apply_properties_from_geojson_dict"><code class="docutils literal notranslate"><span class="pre">apply_properties_from_geojson_dict()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="dragonfly_radiance.properties.building.html#dragonfly_radiance.properties.building.BuildingRadianceProperties.duplicate"><code class="docutils literal notranslate"><span class="pre">duplicate()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="dragonfly_radiance.properties.building.html#dragonfly_radiance.properties.building.BuildingRadianceProperties.from_dict"><code class="docutils literal notranslate"><span class="pre">from_dict()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="dragonfly_radiance.properties.building.html#dragonfly_radiance.properties.building.BuildingRadianceProperties.make_plenums"><code class="docutils literal notranslate"><span class="pre">make_plenums()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="dragonfly_radiance.properties.building.html#dragonfly_radiance.properties.building.BuildingRadianceProperties.to_dict"><code class="docutils literal notranslate"><span class="pre">to_dict()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="dragonfly_radiance.properties.building.html#dragonfly_radiance.properties.building.BuildingRadianceProperties.host"><code class="docutils literal notranslate"><span class="pre">host</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="dragonfly_radiance.properties.building.html#dragonfly_radiance.properties.building.BuildingRadianceProperties.modifier_set"><code class="docutils literal notranslate"><span class="pre">modifier_set</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="dragonfly_radiance.properties.context.html">dragonfly_radiance.properties.context module</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="dragonfly_radiance.properties.context.html#dragonfly_radiance.properties.context.ContextShadeRadianceProperties"><code class="docutils literal notranslate"><span class="pre">ContextShadeRadianceProperties</span></code></a><ul>
+<li class="toctree-l8"><a class="reference internal" href="dragonfly_radiance.properties.context.html#dragonfly_radiance.properties.context.ContextShadeRadianceProperties.ToString"><code class="docutils literal notranslate"><span class="pre">ToString()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="dragonfly_radiance.properties.context.html#dragonfly_radiance.properties.context.ContextShadeRadianceProperties.apply_properties_from_dict"><code class="docutils literal notranslate"><span class="pre">apply_properties_from_dict()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="dragonfly_radiance.properties.context.html#dragonfly_radiance.properties.context.ContextShadeRadianceProperties.duplicate"><code class="docutils literal notranslate"><span class="pre">duplicate()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="dragonfly_radiance.properties.context.html#dragonfly_radiance.properties.context.ContextShadeRadianceProperties.from_dict"><code class="docutils literal notranslate"><span class="pre">from_dict()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="dragonfly_radiance.properties.context.html#dragonfly_radiance.properties.context.ContextShadeRadianceProperties.from_honeybee"><code class="docutils literal notranslate"><span class="pre">from_honeybee()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="dragonfly_radiance.properties.context.html#dragonfly_radiance.properties.context.ContextShadeRadianceProperties.to_dict"><code class="docutils literal notranslate"><span class="pre">to_dict()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="dragonfly_radiance.properties.context.html#dragonfly_radiance.properties.context.ContextShadeRadianceProperties.to_honeybee"><code class="docutils literal notranslate"><span class="pre">to_honeybee()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="dragonfly_radiance.properties.context.html#dragonfly_radiance.properties.context.ContextShadeRadianceProperties.host"><code class="docutils literal notranslate"><span class="pre">host</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="dragonfly_radiance.properties.context.html#dragonfly_radiance.properties.context.ContextShadeRadianceProperties.is_modifier_set_by_user"><code class="docutils literal notranslate"><span class="pre">is_modifier_set_by_user</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="dragonfly_radiance.properties.context.html#dragonfly_radiance.properties.context.ContextShadeRadianceProperties.modifier"><code class="docutils literal notranslate"><span class="pre">modifier</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="dragonfly_radiance.properties.model.html">dragonfly_radiance.properties.model module</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="dragonfly_radiance.properties.model.html#dragonfly_radiance.properties.model.ModelRadianceProperties"><code class="docutils literal notranslate"><span class="pre">ModelRadianceProperties</span></code></a><ul>
+<li class="toctree-l8"><a class="reference internal" href="dragonfly_radiance.properties.model.html#dragonfly_radiance.properties.model.ModelRadianceProperties.ToString"><code class="docutils literal notranslate"><span class="pre">ToString()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="dragonfly_radiance.properties.model.html#dragonfly_radiance.properties.model.ModelRadianceProperties.apply_properties_from_dict"><code class="docutils literal notranslate"><span class="pre">apply_properties_from_dict()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="dragonfly_radiance.properties.model.html#dragonfly_radiance.properties.model.ModelRadianceProperties.check_all"><code class="docutils literal notranslate"><span class="pre">check_all()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="dragonfly_radiance.properties.model.html#dragonfly_radiance.properties.model.ModelRadianceProperties.check_all_duplicate_identifiers"><code class="docutils literal notranslate"><span class="pre">check_all_duplicate_identifiers()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="dragonfly_radiance.properties.model.html#dragonfly_radiance.properties.model.ModelRadianceProperties.check_duplicate_modifier_identifiers"><code class="docutils literal notranslate"><span class="pre">check_duplicate_modifier_identifiers()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="dragonfly_radiance.properties.model.html#dragonfly_radiance.properties.model.ModelRadianceProperties.check_duplicate_modifier_set_identifiers"><code class="docutils literal notranslate"><span class="pre">check_duplicate_modifier_set_identifiers()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="dragonfly_radiance.properties.model.html#dragonfly_radiance.properties.model.ModelRadianceProperties.check_for_extension"><code class="docutils literal notranslate"><span class="pre">check_for_extension()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="dragonfly_radiance.properties.model.html#dragonfly_radiance.properties.model.ModelRadianceProperties.check_generic"><code class="docutils literal notranslate"><span class="pre">check_generic()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="dragonfly_radiance.properties.model.html#dragonfly_radiance.properties.model.ModelRadianceProperties.duplicate"><code class="docutils literal notranslate"><span class="pre">duplicate()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="dragonfly_radiance.properties.model.html#dragonfly_radiance.properties.model.ModelRadianceProperties.to_dict"><code class="docutils literal notranslate"><span class="pre">to_dict()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="dragonfly_radiance.properties.model.html#dragonfly_radiance.properties.model.ModelRadianceProperties.to_honeybee"><code class="docutils literal notranslate"><span class="pre">to_honeybee()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="dragonfly_radiance.properties.model.html#dragonfly_radiance.properties.model.ModelRadianceProperties.ERROR_MAP"><code class="docutils literal notranslate"><span class="pre">ERROR_MAP</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="dragonfly_radiance.properties.model.html#dragonfly_radiance.properties.model.ModelRadianceProperties.face_modifiers"><code class="docutils literal notranslate"><span class="pre">face_modifiers</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="dragonfly_radiance.properties.model.html#dragonfly_radiance.properties.model.ModelRadianceProperties.global_modifier_set"><code class="docutils literal notranslate"><span class="pre">global_modifier_set</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="dragonfly_radiance.properties.model.html#dragonfly_radiance.properties.model.ModelRadianceProperties.host"><code class="docutils literal notranslate"><span class="pre">host</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="dragonfly_radiance.properties.model.html#dragonfly_radiance.properties.model.ModelRadianceProperties.modifier_sets"><code class="docutils literal notranslate"><span class="pre">modifier_sets</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="dragonfly_radiance.properties.model.html#dragonfly_radiance.properties.model.ModelRadianceProperties.modifiers"><code class="docutils literal notranslate"><span class="pre">modifiers</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="dragonfly_radiance.properties.model.html#dragonfly_radiance.properties.model.ModelRadianceProperties.shade_modifiers"><code class="docutils literal notranslate"><span class="pre">shade_modifiers</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="dragonfly_radiance.properties.room2d.html">dragonfly_radiance.properties.room2d module</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="dragonfly_radiance.properties.room2d.html#dragonfly_radiance.properties.room2d.Room2DRadianceProperties"><code class="docutils literal notranslate"><span class="pre">Room2DRadianceProperties</span></code></a><ul>
+<li class="toctree-l8"><a class="reference internal" href="dragonfly_radiance.properties.room2d.html#dragonfly_radiance.properties.room2d.Room2DRadianceProperties.ToString"><code class="docutils literal notranslate"><span class="pre">ToString()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="dragonfly_radiance.properties.room2d.html#dragonfly_radiance.properties.room2d.Room2DRadianceProperties.add_grid_parameter"><code class="docutils literal notranslate"><span class="pre">add_grid_parameter()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="dragonfly_radiance.properties.room2d.html#dragonfly_radiance.properties.room2d.Room2DRadianceProperties.apply_properties_from_dict"><code class="docutils literal notranslate"><span class="pre">apply_properties_from_dict()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="dragonfly_radiance.properties.room2d.html#dragonfly_radiance.properties.room2d.Room2DRadianceProperties.duplicate"><code class="docutils literal notranslate"><span class="pre">duplicate()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="dragonfly_radiance.properties.room2d.html#dragonfly_radiance.properties.room2d.Room2DRadianceProperties.from_dict"><code class="docutils literal notranslate"><span class="pre">from_dict()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="dragonfly_radiance.properties.room2d.html#dragonfly_radiance.properties.room2d.Room2DRadianceProperties.from_honeybee"><code class="docutils literal notranslate"><span class="pre">from_honeybee()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="dragonfly_radiance.properties.room2d.html#dragonfly_radiance.properties.room2d.Room2DRadianceProperties.make_plenum"><code class="docutils literal notranslate"><span class="pre">make_plenum()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="dragonfly_radiance.properties.room2d.html#dragonfly_radiance.properties.room2d.Room2DRadianceProperties.remove_grid_parameters"><code class="docutils literal notranslate"><span class="pre">remove_grid_parameters()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="dragonfly_radiance.properties.room2d.html#dragonfly_radiance.properties.room2d.Room2DRadianceProperties.to_dict"><code class="docutils literal notranslate"><span class="pre">to_dict()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="dragonfly_radiance.properties.room2d.html#dragonfly_radiance.properties.room2d.Room2DRadianceProperties.to_honeybee"><code class="docutils literal notranslate"><span class="pre">to_honeybee()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="dragonfly_radiance.properties.room2d.html#dragonfly_radiance.properties.room2d.Room2DRadianceProperties.grid_parameters"><code class="docutils literal notranslate"><span class="pre">grid_parameters</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="dragonfly_radiance.properties.room2d.html#dragonfly_radiance.properties.room2d.Room2DRadianceProperties.host"><code class="docutils literal notranslate"><span class="pre">host</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="dragonfly_radiance.properties.room2d.html#dragonfly_radiance.properties.room2d.Room2DRadianceProperties.modifier_set"><code class="docutils literal notranslate"><span class="pre">modifier_set</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="dragonfly_radiance.properties.story.html">dragonfly_radiance.properties.story module</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="dragonfly_radiance.properties.story.html#dragonfly_radiance.properties.story.StoryRadianceProperties"><code class="docutils literal notranslate"><span class="pre">StoryRadianceProperties</span></code></a><ul>
+<li class="toctree-l8"><a class="reference internal" href="dragonfly_radiance.properties.story.html#dragonfly_radiance.properties.story.StoryRadianceProperties.ToString"><code class="docutils literal notranslate"><span class="pre">ToString()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="dragonfly_radiance.properties.story.html#dragonfly_radiance.properties.story.StoryRadianceProperties.apply_properties_from_dict"><code class="docutils literal notranslate"><span class="pre">apply_properties_from_dict()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="dragonfly_radiance.properties.story.html#dragonfly_radiance.properties.story.StoryRadianceProperties.duplicate"><code class="docutils literal notranslate"><span class="pre">duplicate()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="dragonfly_radiance.properties.story.html#dragonfly_radiance.properties.story.StoryRadianceProperties.from_dict"><code class="docutils literal notranslate"><span class="pre">from_dict()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="dragonfly_radiance.properties.story.html#dragonfly_radiance.properties.story.StoryRadianceProperties.to_dict"><code class="docutils literal notranslate"><span class="pre">to_dict()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="dragonfly_radiance.properties.story.html#dragonfly_radiance.properties.story.StoryRadianceProperties.host"><code class="docutils literal notranslate"><span class="pre">host</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="dragonfly_radiance.properties.story.html#dragonfly_radiance.properties.story.StoryRadianceProperties.modifier_set"><code class="docutils literal notranslate"><span class="pre">modifier_set</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="dragonfly_radiance.properties.html#module-dragonfly_radiance.properties">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3 current"><a class="reference internal" href="dragonfly_radiance.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">dragonfly_radiance.gridpar module</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorApertureGridParameter"><code class="docutils literal notranslate"><span class="pre">ExteriorApertureGridParameter</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorApertureGridParameter.ToString"><code class="docutils literal notranslate"><span class="pre">ToString()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorApertureGridParameter.duplicate"><code class="docutils literal notranslate"><span class="pre">duplicate()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorApertureGridParameter.from_dict"><code class="docutils literal notranslate"><span class="pre">from_dict()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorApertureGridParameter.generate_grid_from_room"><code class="docutils literal notranslate"><span class="pre">generate_grid_from_room()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorApertureGridParameter.scale"><code class="docutils literal notranslate"><span class="pre">scale()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorApertureGridParameter.to_dict"><code class="docutils literal notranslate"><span class="pre">to_dict()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorApertureGridParameter.APERTURE_TYPES"><code class="docutils literal notranslate"><span class="pre">APERTURE_TYPES</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorApertureGridParameter.aperture_type"><code class="docutils literal notranslate"><span class="pre">aperture_type</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorApertureGridParameter.dimension"><code class="docutils literal notranslate"><span class="pre">dimension</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorApertureGridParameter.include_mesh"><code class="docutils literal notranslate"><span class="pre">include_mesh</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorApertureGridParameter.offset"><code class="docutils literal notranslate"><span class="pre">offset</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorFaceGridParameter"><code class="docutils literal notranslate"><span class="pre">ExteriorFaceGridParameter</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorFaceGridParameter.ToString"><code class="docutils literal notranslate"><span class="pre">ToString()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorFaceGridParameter.duplicate"><code class="docutils literal notranslate"><span class="pre">duplicate()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorFaceGridParameter.from_dict"><code class="docutils literal notranslate"><span class="pre">from_dict()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorFaceGridParameter.generate_grid_from_room"><code class="docutils literal notranslate"><span class="pre">generate_grid_from_room()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorFaceGridParameter.scale"><code class="docutils literal notranslate"><span class="pre">scale()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorFaceGridParameter.to_dict"><code class="docutils literal notranslate"><span class="pre">to_dict()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorFaceGridParameter.FACE_TYPES"><code class="docutils literal notranslate"><span class="pre">FACE_TYPES</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorFaceGridParameter.dimension"><code class="docutils literal notranslate"><span class="pre">dimension</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorFaceGridParameter.face_type"><code class="docutils literal notranslate"><span class="pre">face_type</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorFaceGridParameter.include_mesh"><code class="docutils literal notranslate"><span class="pre">include_mesh</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorFaceGridParameter.offset"><code class="docutils literal notranslate"><span class="pre">offset</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorFaceGridParameter.punched_geometry"><code class="docutils literal notranslate"><span class="pre">punched_geometry</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomGridParameter"><code class="docutils literal notranslate"><span class="pre">RoomGridParameter</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomGridParameter.ToString"><code class="docutils literal notranslate"><span class="pre">ToString()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomGridParameter.duplicate"><code class="docutils literal notranslate"><span class="pre">duplicate()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomGridParameter.from_dict"><code class="docutils literal notranslate"><span class="pre">from_dict()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomGridParameter.generate_grid_from_room"><code class="docutils literal notranslate"><span class="pre">generate_grid_from_room()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomGridParameter.scale"><code class="docutils literal notranslate"><span class="pre">scale()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomGridParameter.to_dict"><code class="docutils literal notranslate"><span class="pre">to_dict()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomGridParameter.dimension"><code class="docutils literal notranslate"><span class="pre">dimension</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomGridParameter.include_mesh"><code class="docutils literal notranslate"><span class="pre">include_mesh</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomGridParameter.offset"><code class="docutils literal notranslate"><span class="pre">offset</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomGridParameter.wall_offset"><code class="docutils literal notranslate"><span class="pre">wall_offset</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomRadialGridParameter"><code class="docutils literal notranslate"><span class="pre">RoomRadialGridParameter</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomRadialGridParameter.ToString"><code class="docutils literal notranslate"><span class="pre">ToString()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomRadialGridParameter.duplicate"><code class="docutils literal notranslate"><span class="pre">duplicate()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomRadialGridParameter.from_dict"><code class="docutils literal notranslate"><span class="pre">from_dict()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomRadialGridParameter.generate_grid_from_room"><code class="docutils literal notranslate"><span class="pre">generate_grid_from_room()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomRadialGridParameter.scale"><code class="docutils literal notranslate"><span class="pre">scale()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomRadialGridParameter.to_dict"><code class="docutils literal notranslate"><span class="pre">to_dict()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomRadialGridParameter.dimension"><code class="docutils literal notranslate"><span class="pre">dimension</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomRadialGridParameter.dir_count"><code class="docutils literal notranslate"><span class="pre">dir_count</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomRadialGridParameter.include_mesh"><code class="docutils literal notranslate"><span class="pre">include_mesh</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomRadialGridParameter.mesh_radius"><code class="docutils literal notranslate"><span class="pre">mesh_radius</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomRadialGridParameter.offset"><code class="docutils literal notranslate"><span class="pre">offset</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomRadialGridParameter.start_vector"><code class="docutils literal notranslate"><span class="pre">start_vector</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomRadialGridParameter.wall_offset"><code class="docutils literal notranslate"><span class="pre">wall_offset</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="dragonfly_radiance.html#module-dragonfly_radiance">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="cli/index.html">CLI Docs</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">dragonfly_radiance</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="dragonfly_radiance.html">dragonfly_radiance package</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="dragonfly_radiance.html#subpackages">Subpackages</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="dragonfly_radiance.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">dragonfly_radiance.gridpar module</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorApertureGridParameter"><code class="docutils literal notranslate"><span class="pre">ExteriorApertureGridParameter</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorApertureGridParameter.ToString"><code class="docutils literal notranslate"><span class="pre">ToString()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorApertureGridParameter.duplicate"><code class="docutils literal notranslate"><span class="pre">duplicate()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorApertureGridParameter.from_dict"><code class="docutils literal notranslate"><span class="pre">from_dict()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorApertureGridParameter.generate_grid_from_room"><code class="docutils literal notranslate"><span class="pre">generate_grid_from_room()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorApertureGridParameter.scale"><code class="docutils literal notranslate"><span class="pre">scale()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorApertureGridParameter.to_dict"><code class="docutils literal notranslate"><span class="pre">to_dict()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorApertureGridParameter.APERTURE_TYPES"><code class="docutils literal notranslate"><span class="pre">APERTURE_TYPES</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorApertureGridParameter.aperture_type"><code class="docutils literal notranslate"><span class="pre">aperture_type</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorApertureGridParameter.dimension"><code class="docutils literal notranslate"><span class="pre">dimension</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorApertureGridParameter.include_mesh"><code class="docutils literal notranslate"><span class="pre">include_mesh</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorApertureGridParameter.offset"><code class="docutils literal notranslate"><span class="pre">offset</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorFaceGridParameter"><code class="docutils literal notranslate"><span class="pre">ExteriorFaceGridParameter</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorFaceGridParameter.ToString"><code class="docutils literal notranslate"><span class="pre">ToString()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorFaceGridParameter.duplicate"><code class="docutils literal notranslate"><span class="pre">duplicate()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorFaceGridParameter.from_dict"><code class="docutils literal notranslate"><span class="pre">from_dict()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorFaceGridParameter.generate_grid_from_room"><code class="docutils literal notranslate"><span class="pre">generate_grid_from_room()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorFaceGridParameter.scale"><code class="docutils literal notranslate"><span class="pre">scale()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorFaceGridParameter.to_dict"><code class="docutils literal notranslate"><span class="pre">to_dict()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorFaceGridParameter.FACE_TYPES"><code class="docutils literal notranslate"><span class="pre">FACE_TYPES</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorFaceGridParameter.dimension"><code class="docutils literal notranslate"><span class="pre">dimension</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorFaceGridParameter.face_type"><code class="docutils literal notranslate"><span class="pre">face_type</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorFaceGridParameter.include_mesh"><code class="docutils literal notranslate"><span class="pre">include_mesh</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorFaceGridParameter.offset"><code class="docutils literal notranslate"><span class="pre">offset</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorFaceGridParameter.punched_geometry"><code class="docutils literal notranslate"><span class="pre">punched_geometry</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomGridParameter"><code class="docutils literal notranslate"><span class="pre">RoomGridParameter</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomGridParameter.ToString"><code class="docutils literal notranslate"><span class="pre">ToString()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomGridParameter.duplicate"><code class="docutils literal notranslate"><span class="pre">duplicate()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomGridParameter.from_dict"><code class="docutils literal notranslate"><span class="pre">from_dict()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomGridParameter.generate_grid_from_room"><code class="docutils literal notranslate"><span class="pre">generate_grid_from_room()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomGridParameter.scale"><code class="docutils literal notranslate"><span class="pre">scale()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomGridParameter.to_dict"><code class="docutils literal notranslate"><span class="pre">to_dict()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomGridParameter.dimension"><code class="docutils literal notranslate"><span class="pre">dimension</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomGridParameter.include_mesh"><code class="docutils literal notranslate"><span class="pre">include_mesh</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomGridParameter.offset"><code class="docutils literal notranslate"><span class="pre">offset</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomGridParameter.wall_offset"><code class="docutils literal notranslate"><span class="pre">wall_offset</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomRadialGridParameter"><code class="docutils literal notranslate"><span class="pre">RoomRadialGridParameter</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomRadialGridParameter.ToString"><code class="docutils literal notranslate"><span class="pre">ToString()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomRadialGridParameter.duplicate"><code class="docutils literal notranslate"><span class="pre">duplicate()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomRadialGridParameter.from_dict"><code class="docutils literal notranslate"><span class="pre">from_dict()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomRadialGridParameter.generate_grid_from_room"><code class="docutils literal notranslate"><span class="pre">generate_grid_from_room()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomRadialGridParameter.scale"><code class="docutils literal notranslate"><span class="pre">scale()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomRadialGridParameter.to_dict"><code class="docutils literal notranslate"><span class="pre">to_dict()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomRadialGridParameter.dimension"><code class="docutils literal notranslate"><span class="pre">dimension</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomRadialGridParameter.dir_count"><code class="docutils literal notranslate"><span class="pre">dir_count</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomRadialGridParameter.include_mesh"><code class="docutils literal notranslate"><span class="pre">include_mesh</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomRadialGridParameter.mesh_radius"><code class="docutils literal notranslate"><span class="pre">mesh_radius</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomRadialGridParameter.offset"><code class="docutils literal notranslate"><span class="pre">offset</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomRadialGridParameter.start_vector"><code class="docutils literal notranslate"><span class="pre">start_vector</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomRadialGridParameter.wall_offset"><code class="docutils literal notranslate"><span class="pre">wall_offset</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="dragonfly_radiance.html#module-dragonfly_radiance">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="dragonfly_radiance.properties.story.html" title="Previous Chapter: dragonfly_radiance.properties.story module"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; dragonfly_rad...</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="_sources/dragonfly_radiance.gridpar.rst.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-4">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+<li class="toctree-l1"><a class="reference internal" href="cli/index.html">CLI Docs</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">dragonfly_radiance</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="dragonfly_radiance.html">dragonfly_radiance package</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="dragonfly_radiance.html#subpackages">Subpackages</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="dragonfly_radiance.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">dragonfly_radiance.gridpar module</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorApertureGridParameter"><code class="docutils literal notranslate"><span class="pre">ExteriorApertureGridParameter</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorApertureGridParameter.ToString"><code class="docutils literal notranslate"><span class="pre">ToString()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorApertureGridParameter.duplicate"><code class="docutils literal notranslate"><span class="pre">duplicate()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorApertureGridParameter.from_dict"><code class="docutils literal notranslate"><span class="pre">from_dict()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorApertureGridParameter.generate_grid_from_room"><code class="docutils literal notranslate"><span class="pre">generate_grid_from_room()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorApertureGridParameter.scale"><code class="docutils literal notranslate"><span class="pre">scale()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorApertureGridParameter.to_dict"><code class="docutils literal notranslate"><span class="pre">to_dict()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorApertureGridParameter.APERTURE_TYPES"><code class="docutils literal notranslate"><span class="pre">APERTURE_TYPES</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorApertureGridParameter.aperture_type"><code class="docutils literal notranslate"><span class="pre">aperture_type</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorApertureGridParameter.dimension"><code class="docutils literal notranslate"><span class="pre">dimension</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorApertureGridParameter.include_mesh"><code class="docutils literal notranslate"><span class="pre">include_mesh</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorApertureGridParameter.offset"><code class="docutils literal notranslate"><span class="pre">offset</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorFaceGridParameter"><code class="docutils literal notranslate"><span class="pre">ExteriorFaceGridParameter</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorFaceGridParameter.ToString"><code class="docutils literal notranslate"><span class="pre">ToString()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorFaceGridParameter.duplicate"><code class="docutils literal notranslate"><span class="pre">duplicate()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorFaceGridParameter.from_dict"><code class="docutils literal notranslate"><span class="pre">from_dict()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorFaceGridParameter.generate_grid_from_room"><code class="docutils literal notranslate"><span class="pre">generate_grid_from_room()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorFaceGridParameter.scale"><code class="docutils literal notranslate"><span class="pre">scale()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorFaceGridParameter.to_dict"><code class="docutils literal notranslate"><span class="pre">to_dict()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorFaceGridParameter.FACE_TYPES"><code class="docutils literal notranslate"><span class="pre">FACE_TYPES</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorFaceGridParameter.dimension"><code class="docutils literal notranslate"><span class="pre">dimension</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorFaceGridParameter.face_type"><code class="docutils literal notranslate"><span class="pre">face_type</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorFaceGridParameter.include_mesh"><code class="docutils literal notranslate"><span class="pre">include_mesh</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorFaceGridParameter.offset"><code class="docutils literal notranslate"><span class="pre">offset</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.ExteriorFaceGridParameter.punched_geometry"><code class="docutils literal notranslate"><span class="pre">punched_geometry</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomGridParameter"><code class="docutils literal notranslate"><span class="pre">RoomGridParameter</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomGridParameter.ToString"><code class="docutils literal notranslate"><span class="pre">ToString()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomGridParameter.duplicate"><code class="docutils literal notranslate"><span class="pre">duplicate()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomGridParameter.from_dict"><code class="docutils literal notranslate"><span class="pre">from_dict()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomGridParameter.generate_grid_from_room"><code class="docutils literal notranslate"><span class="pre">generate_grid_from_room()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomGridParameter.scale"><code class="docutils literal notranslate"><span class="pre">scale()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomGridParameter.to_dict"><code class="docutils literal notranslate"><span class="pre">to_dict()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomGridParameter.dimension"><code class="docutils literal notranslate"><span class="pre">dimension</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomGridParameter.include_mesh"><code class="docutils literal notranslate"><span class="pre">include_mesh</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomGridParameter.offset"><code class="docutils literal notranslate"><span class="pre">offset</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomGridParameter.wall_offset"><code class="docutils literal notranslate"><span class="pre">wall_offset</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomRadialGridParameter"><code class="docutils literal notranslate"><span class="pre">RoomRadialGridParameter</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomRadialGridParameter.ToString"><code class="docutils literal notranslate"><span class="pre">ToString()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomRadialGridParameter.duplicate"><code class="docutils literal notranslate"><span class="pre">duplicate()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomRadialGridParameter.from_dict"><code class="docutils literal notranslate"><span class="pre">from_dict()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomRadialGridParameter.generate_grid_from_room"><code class="docutils literal notranslate"><span class="pre">generate_grid_from_room()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomRadialGridParameter.scale"><code class="docutils literal notranslate"><span class="pre">scale()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomRadialGridParameter.to_dict"><code class="docutils literal notranslate"><span class="pre">to_dict()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomRadialGridParameter.dimension"><code class="docutils literal notranslate"><span class="pre">dimension</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomRadialGridParameter.dir_count"><code class="docutils literal notranslate"><span class="pre">dir_count</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomRadialGridParameter.include_mesh"><code class="docutils literal notranslate"><span class="pre">include_mesh</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomRadialGridParameter.mesh_radius"><code class="docutils literal notranslate"><span class="pre">mesh_radius</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomRadialGridParameter.offset"><code class="docutils literal notranslate"><span class="pre">offset</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomRadialGridParameter.start_vector"><code class="docutils literal notranslate"><span class="pre">start_vector</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#dragonfly_radiance.gridpar.RoomRadialGridParameter.wall_offset"><code class="docutils literal notranslate"><span class="pre">wall_offset</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="dragonfly_radiance.html#module-dragonfly_radiance">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    <div class="body col-md-8 content" role="main">
+      
+  <section id="module-dragonfly_radiance.gridpar">
+<span id="dragonfly-radiance-gridpar-module"></span><h1>dragonfly_radiance.gridpar module<a class="headerlink" href="#module-dragonfly_radiance.gridpar" title="Link to this heading">¶</a></h1>
+<p>Grid Parameters with instructions for generating SensorGrids.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="dragonfly_radiance.gridpar.ExteriorApertureGridParameter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dragonfly_radiance.gridpar.</span></span><span class="sig-name descname"><span class="pre">ExteriorApertureGridParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dimension</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aperture_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'All'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_mesh</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dragonfly_radiance/gridpar.html#ExteriorApertureGridParameter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dragonfly_radiance.gridpar.ExteriorApertureGridParameter" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">_GridParameterBase</span></code></p>
+<p>Instructions for a SensorGrid generated from exterior Aperture.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dimension</strong> – The dimension of the grid cells as a number.</p></li>
+<li><p><strong>offset</strong> – A number for how far to offset the grid from the base
+geometries. (Default: 0.1, suitable for Rooms in Meters).</p></li>
+<li><p><strong>aperture_type</strong> – <p>Text to specify the type of Aperture that will be used to
+generate grids. Window indicates Apertures in Walls. Skylights
+are in parent Roof faces. Choose from the following. (Default: All).</p>
+<ul>
+<li><p>Window</p></li>
+<li><p>Skylight</p></li>
+<li><p>All</p></li>
+</ul>
+</p></li>
+<li><p><strong>include_mesh</strong> – A boolean to note whether the resulting SensorGrid should
+include the mesh. (Default: True).</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="dragonfly_radiance.gridpar.ExteriorApertureGridParameter.ToString">
+<span class="sig-name descname"><span class="pre">ToString</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dragonfly_radiance/gridpar.html#ExteriorApertureGridParameter.ToString"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dragonfly_radiance.gridpar.ExteriorApertureGridParameter.ToString" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dragonfly_radiance.gridpar.ExteriorApertureGridParameter.duplicate">
+<span class="sig-name descname"><span class="pre">duplicate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dragonfly_radiance/gridpar.html#ExteriorApertureGridParameter.duplicate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dragonfly_radiance.gridpar.ExteriorApertureGridParameter.duplicate" title="Link to this definition">¶</a></dt>
+<dd><p>Get a copy of this object.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dragonfly_radiance.gridpar.ExteriorApertureGridParameter.from_dict">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dragonfly_radiance/gridpar.html#ExteriorApertureGridParameter.from_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dragonfly_radiance.gridpar.ExteriorApertureGridParameter.from_dict" title="Link to this definition">¶</a></dt>
+<dd><p>Create ExteriorApertureGridParameter from a dictionary.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;ExteriorApertureGridParameter&quot;</span><span class="p">,</span>
+<span class="s2">&quot;dimension&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
+<span class="s2">&quot;offset&quot;</span><span class="p">:</span> <span class="mf">0.15</span><span class="p">,</span>
+<span class="s2">&quot;aperture_type&quot;</span><span class="p">:</span> <span class="s2">&quot;Window&quot;</span><span class="p">,</span>
+<span class="s2">&quot;include_mesh&quot;</span><span class="p">:</span> <span class="kc">True</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dragonfly_radiance.gridpar.ExteriorApertureGridParameter.generate_grid_from_room">
+<span class="sig-name descname"><span class="pre">generate_grid_from_room</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">honeybee_room</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dragonfly_radiance/gridpar.html#ExteriorApertureGridParameter.generate_grid_from_room"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dragonfly_radiance.gridpar.ExteriorApertureGridParameter.generate_grid_from_room" title="Link to this definition">¶</a></dt>
+<dd><p>Get a SensorGrid from a Honeybee Room using these GridParameter.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>honeybee_room</strong> – A Honeybee Room to which these grid parameters are applied.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A honeybee-radiance SensorGrid generated from the Honeybee Room. Will
+be None if the object has no exterior Apertures.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dragonfly_radiance.gridpar.ExteriorApertureGridParameter.scale">
+<span class="sig-name descname"><span class="pre">scale</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">factor</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dragonfly_radiance/gridpar.html#ExteriorApertureGridParameter.scale"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dragonfly_radiance.gridpar.ExteriorApertureGridParameter.scale" title="Link to this definition">¶</a></dt>
+<dd><p>Get a scaled version of these GridParameters.</p>
+<p>This method is called within the scale methods of the Room2D.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>factor</strong> – A number representing how much the object should be scaled.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dragonfly_radiance.gridpar.ExteriorApertureGridParameter.to_dict">
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dragonfly_radiance/gridpar.html#ExteriorApertureGridParameter.to_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dragonfly_radiance.gridpar.ExteriorApertureGridParameter.to_dict" title="Link to this definition">¶</a></dt>
+<dd><p>Get ExteriorApertureGridParameter as a dictionary.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dragonfly_radiance.gridpar.ExteriorApertureGridParameter.APERTURE_TYPES">
+<span class="sig-name descname"><span class="pre">APERTURE_TYPES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('Window',</span> <span class="pre">'Skylight',</span> <span class="pre">'All')</span></em><a class="headerlink" href="#dragonfly_radiance.gridpar.ExteriorApertureGridParameter.APERTURE_TYPES" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="dragonfly_radiance.gridpar.ExteriorApertureGridParameter.aperture_type">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">aperture_type</span></span><a class="headerlink" href="#dragonfly_radiance.gridpar.ExteriorApertureGridParameter.aperture_type" title="Link to this definition">¶</a></dt>
+<dd><p>Get text to specify the type of face that will be used to generate grids.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="dragonfly_radiance.gridpar.ExteriorApertureGridParameter.dimension">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dimension</span></span><a class="headerlink" href="#dragonfly_radiance.gridpar.ExteriorApertureGridParameter.dimension" title="Link to this definition">¶</a></dt>
+<dd><p>Get a number for the dimension of the grid cells.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="dragonfly_radiance.gridpar.ExteriorApertureGridParameter.include_mesh">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">include_mesh</span></span><a class="headerlink" href="#dragonfly_radiance.gridpar.ExteriorApertureGridParameter.include_mesh" title="Link to this definition">¶</a></dt>
+<dd><p>Get a boolean for whether the resulting SensorGrid should include the mesh.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="dragonfly_radiance.gridpar.ExteriorApertureGridParameter.offset">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">offset</span></span><a class="headerlink" href="#dragonfly_radiance.gridpar.ExteriorApertureGridParameter.offset" title="Link to this definition">¶</a></dt>
+<dd><p>Get a number for how far to offset the grid from the base geometries.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="dragonfly_radiance.gridpar.ExteriorFaceGridParameter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dragonfly_radiance.gridpar.</span></span><span class="sig-name descname"><span class="pre">ExteriorFaceGridParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dimension</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">face_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Wall'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">punched_geometry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_mesh</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dragonfly_radiance/gridpar.html#ExteriorFaceGridParameter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dragonfly_radiance.gridpar.ExteriorFaceGridParameter" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">_GridParameterBase</span></code></p>
+<p>Instructions for a SensorGrid generated from exterior Faces.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dimension</strong> – The dimension of the grid cells as a number.</p></li>
+<li><p><strong>offset</strong> – A number for how far to offset the grid from the base
+geometries. (Default: 0.1, suitable for Rooms in Meters).</p></li>
+<li><p><strong>face_type</strong> – <p>Text to specify the type of face that will be used to
+generate grids. Note that only Faces with Outdoors boundary
+conditions will be used, meaning that most Floors will typically
+be excluded unless they represent the underside of a cantilever.
+Choose from the following. (Default: Wall).</p>
+<ul>
+<li><p>Wall</p></li>
+<li><p>Roof</p></li>
+<li><p>Floor</p></li>
+<li><p>All</p></li>
+</ul>
+</p></li>
+<li><p><strong>punched_geometry</strong> – Boolean to note whether the punched_geometry of the faces
+should be used (True) with the areas of sub-faces removed from the grid
+or the full geometry should be used (False). (Default:False).</p></li>
+<li><p><strong>include_mesh</strong> – A boolean to note whether the resulting SensorGrid should
+include the mesh. (Default: True).</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="dragonfly_radiance.gridpar.ExteriorFaceGridParameter.ToString">
+<span class="sig-name descname"><span class="pre">ToString</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dragonfly_radiance/gridpar.html#ExteriorFaceGridParameter.ToString"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dragonfly_radiance.gridpar.ExteriorFaceGridParameter.ToString" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dragonfly_radiance.gridpar.ExteriorFaceGridParameter.duplicate">
+<span class="sig-name descname"><span class="pre">duplicate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dragonfly_radiance/gridpar.html#ExteriorFaceGridParameter.duplicate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dragonfly_radiance.gridpar.ExteriorFaceGridParameter.duplicate" title="Link to this definition">¶</a></dt>
+<dd><p>Get a copy of this object.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dragonfly_radiance.gridpar.ExteriorFaceGridParameter.from_dict">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dragonfly_radiance/gridpar.html#ExteriorFaceGridParameter.from_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dragonfly_radiance.gridpar.ExteriorFaceGridParameter.from_dict" title="Link to this definition">¶</a></dt>
+<dd><p>Create ExteriorFaceGridParameter from a dictionary.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;ExteriorFaceGridParameter&quot;</span><span class="p">,</span>
+<span class="s2">&quot;dimension&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
+<span class="s2">&quot;offset&quot;</span><span class="p">:</span> <span class="mf">0.15</span><span class="p">,</span>
+<span class="s2">&quot;face_type&quot;</span><span class="p">:</span> <span class="s2">&quot;Roof&quot;</span><span class="p">,</span>
+<span class="s2">&quot;include_mesh&quot;</span><span class="p">:</span> <span class="kc">True</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dragonfly_radiance.gridpar.ExteriorFaceGridParameter.generate_grid_from_room">
+<span class="sig-name descname"><span class="pre">generate_grid_from_room</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">honeybee_room</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dragonfly_radiance/gridpar.html#ExteriorFaceGridParameter.generate_grid_from_room"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dragonfly_radiance.gridpar.ExteriorFaceGridParameter.generate_grid_from_room" title="Link to this definition">¶</a></dt>
+<dd><p>Get a SensorGrid from a Honeybee Room using these GridParameter.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>honeybee_room</strong> – A Honeybee Room to which these grid parameters are applied.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A honeybee-radiance SensorGrid generated from the Honeybee Room. Will
+be None if the Room has no exterior Faces.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dragonfly_radiance.gridpar.ExteriorFaceGridParameter.scale">
+<span class="sig-name descname"><span class="pre">scale</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">factor</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dragonfly_radiance/gridpar.html#ExteriorFaceGridParameter.scale"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dragonfly_radiance.gridpar.ExteriorFaceGridParameter.scale" title="Link to this definition">¶</a></dt>
+<dd><p>Get a scaled version of these GridParameters.</p>
+<p>This method is called within the scale methods of the Room2D.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>factor</strong> – A number representing how much the object should be scaled.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dragonfly_radiance.gridpar.ExteriorFaceGridParameter.to_dict">
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dragonfly_radiance/gridpar.html#ExteriorFaceGridParameter.to_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dragonfly_radiance.gridpar.ExteriorFaceGridParameter.to_dict" title="Link to this definition">¶</a></dt>
+<dd><p>Get ExteriorFaceGridParameter as a dictionary.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dragonfly_radiance.gridpar.ExteriorFaceGridParameter.FACE_TYPES">
+<span class="sig-name descname"><span class="pre">FACE_TYPES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('Wall',</span> <span class="pre">'Roof',</span> <span class="pre">'Floor',</span> <span class="pre">'All')</span></em><a class="headerlink" href="#dragonfly_radiance.gridpar.ExteriorFaceGridParameter.FACE_TYPES" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="dragonfly_radiance.gridpar.ExteriorFaceGridParameter.dimension">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dimension</span></span><a class="headerlink" href="#dragonfly_radiance.gridpar.ExteriorFaceGridParameter.dimension" title="Link to this definition">¶</a></dt>
+<dd><p>Get a number for the dimension of the grid cells.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="dragonfly_radiance.gridpar.ExteriorFaceGridParameter.face_type">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">face_type</span></span><a class="headerlink" href="#dragonfly_radiance.gridpar.ExteriorFaceGridParameter.face_type" title="Link to this definition">¶</a></dt>
+<dd><p>Get text to specify the type of face that will be used to generate grids.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="dragonfly_radiance.gridpar.ExteriorFaceGridParameter.include_mesh">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">include_mesh</span></span><a class="headerlink" href="#dragonfly_radiance.gridpar.ExteriorFaceGridParameter.include_mesh" title="Link to this definition">¶</a></dt>
+<dd><p>Get a boolean for whether the resulting SensorGrid should include the mesh.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="dragonfly_radiance.gridpar.ExteriorFaceGridParameter.offset">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">offset</span></span><a class="headerlink" href="#dragonfly_radiance.gridpar.ExteriorFaceGridParameter.offset" title="Link to this definition">¶</a></dt>
+<dd><p>Get a number for how far to offset the grid from the base geometries.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="dragonfly_radiance.gridpar.ExteriorFaceGridParameter.punched_geometry">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">punched_geometry</span></span><a class="headerlink" href="#dragonfly_radiance.gridpar.ExteriorFaceGridParameter.punched_geometry" title="Link to this definition">¶</a></dt>
+<dd><p>Get a boolean for whether the punched_geometry of the faces should be used.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="dragonfly_radiance.gridpar.RoomGridParameter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dragonfly_radiance.gridpar.</span></span><span class="sig-name descname"><span class="pre">RoomGridParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dimension</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wall_offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_mesh</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dragonfly_radiance/gridpar.html#RoomGridParameter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dragonfly_radiance.gridpar.RoomGridParameter" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">_GridParameterBase</span></code></p>
+<p>Instructions for a SensorGrid generated from a Room2D’s floors.</p>
+<p>The resulting grid will have the room referenced in its room_identifier
+property. Note that the grid is generated within the XY coordinate system
+of the Room2D’s floor_geometry. So rotating the plane of this geometry will
+will result in rotated grid cells.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dimension</strong> – The dimension of the grid cells as a number.</p></li>
+<li><p><strong>offset</strong> – A number for how far to offset the grid from the base
+geometries. (Default: 1, suitable for Rooms in Meters).</p></li>
+<li><p><strong>wall_offset</strong> – A number for the distance at which sensors close to walls
+should be removed. Note that this option has no effect unless the
+value is more than half of the dimension. (Default: 0).</p></li>
+<li><p><strong>include_mesh</strong> – A boolean to note whether the resulting SensorGrid should
+include the mesh. (Default: True).</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="dragonfly_radiance.gridpar.RoomGridParameter.ToString">
+<span class="sig-name descname"><span class="pre">ToString</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dragonfly_radiance/gridpar.html#RoomGridParameter.ToString"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dragonfly_radiance.gridpar.RoomGridParameter.ToString" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dragonfly_radiance.gridpar.RoomGridParameter.duplicate">
+<span class="sig-name descname"><span class="pre">duplicate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dragonfly_radiance/gridpar.html#RoomGridParameter.duplicate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dragonfly_radiance.gridpar.RoomGridParameter.duplicate" title="Link to this definition">¶</a></dt>
+<dd><p>Get a copy of this object.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dragonfly_radiance.gridpar.RoomGridParameter.from_dict">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dragonfly_radiance/gridpar.html#RoomGridParameter.from_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dragonfly_radiance.gridpar.RoomGridParameter.from_dict" title="Link to this definition">¶</a></dt>
+<dd><p>Create RoomGridParameter from a dictionary.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;RoomGridParameter&quot;</span><span class="p">,</span>
+<span class="s2">&quot;dimension&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
+<span class="s2">&quot;offset&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+<span class="s2">&quot;wall_offset&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
+<span class="s2">&quot;include_mesh&quot;</span><span class="p">:</span> <span class="kc">True</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dragonfly_radiance.gridpar.RoomGridParameter.generate_grid_from_room">
+<span class="sig-name descname"><span class="pre">generate_grid_from_room</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">honeybee_room</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dragonfly_radiance/gridpar.html#RoomGridParameter.generate_grid_from_room"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dragonfly_radiance.gridpar.RoomGridParameter.generate_grid_from_room" title="Link to this definition">¶</a></dt>
+<dd><p>Get a SensorGrid from a Honeybee Room using these GridParameter.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>honeybee_room</strong> – A Honeybee Room to which these grid parameters are applied.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A honeybee-radiance SensorGrid generated from the Honeybee Room. Will
+be None if a valid Grid cannot be generated from the Room.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dragonfly_radiance.gridpar.RoomGridParameter.scale">
+<span class="sig-name descname"><span class="pre">scale</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">factor</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dragonfly_radiance/gridpar.html#RoomGridParameter.scale"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dragonfly_radiance.gridpar.RoomGridParameter.scale" title="Link to this definition">¶</a></dt>
+<dd><p>Get a scaled version of these GridParameters.</p>
+<p>This method is called within the scale methods of the Room2D.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>factor</strong> – A number representing how much the object should be scaled.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dragonfly_radiance.gridpar.RoomGridParameter.to_dict">
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dragonfly_radiance/gridpar.html#RoomGridParameter.to_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dragonfly_radiance.gridpar.RoomGridParameter.to_dict" title="Link to this definition">¶</a></dt>
+<dd><p>Get RoomGridParameter as a dictionary.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="dragonfly_radiance.gridpar.RoomGridParameter.dimension">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dimension</span></span><a class="headerlink" href="#dragonfly_radiance.gridpar.RoomGridParameter.dimension" title="Link to this definition">¶</a></dt>
+<dd><p>Get a number for the dimension of the grid cells.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="dragonfly_radiance.gridpar.RoomGridParameter.include_mesh">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">include_mesh</span></span><a class="headerlink" href="#dragonfly_radiance.gridpar.RoomGridParameter.include_mesh" title="Link to this definition">¶</a></dt>
+<dd><p>Get a boolean for whether the resulting SensorGrid should include the mesh.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="dragonfly_radiance.gridpar.RoomGridParameter.offset">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">offset</span></span><a class="headerlink" href="#dragonfly_radiance.gridpar.RoomGridParameter.offset" title="Link to this definition">¶</a></dt>
+<dd><p>Get a number for how far to offset the grid from the base geometries.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="dragonfly_radiance.gridpar.RoomGridParameter.wall_offset">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">wall_offset</span></span><a class="headerlink" href="#dragonfly_radiance.gridpar.RoomGridParameter.wall_offset" title="Link to this definition">¶</a></dt>
+<dd><p>Get a number for the distance at which sensors near walls should be removed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="dragonfly_radiance.gridpar.RoomRadialGridParameter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dragonfly_radiance.gridpar.</span></span><span class="sig-name descname"><span class="pre">RoomRadialGridParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dimension</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wall_offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dir_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_vector</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">Vector3D(0.00,</span> <span class="pre">-1.00,</span> <span class="pre">0.00)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mesh_radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_mesh</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dragonfly_radiance/gridpar.html#RoomRadialGridParameter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dragonfly_radiance.gridpar.RoomRadialGridParameter" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dragonfly_radiance.gridpar.RoomGridParameter" title="dragonfly_radiance.gridpar.RoomGridParameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">RoomGridParameter</span></code></a></p>
+<p>Instructions for a SensorGrid of radial directions around positions from floors.</p>
+<p>This type of sensor grid is particularly helpful for studies of multiple
+view directions, such as imageless glare studies.</p>
+<p>The resulting grid will have the room referenced in its room_identifier
+property. Note that the grid is generated within the XY coordinate system
+of the Room2D’s floor_geometry. So rotating the plane of this geometry will
+will result in rotated grid cells.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dimension</strong> – The dimension of the grid cells as a number.</p></li>
+<li><p><strong>offset</strong> – A number for how far to offset the grid from the base
+geometries. (Default: 1.2, suitable for Rooms in Meters).</p></li>
+<li><p><strong>wall_offset</strong> – A number for the distance at which sensors close to walls
+should be removed. Note that this option has no effect unless the
+value is more than half of the x_dim or y_dim. (Default: 0).</p></li>
+<li><p><strong>dir_count</strong> – A positive integer for the number of radial directions
+to be generated around each position. (Default: 8).</p></li>
+<li><p><strong>start_vector</strong> – A Vector3D to set the start direction of the generated
+directions. This can be used to orient the resulting sensors to
+specific parts of the scene. It can also change the elevation of the
+resulting directions since this start vector will always be rotated in
+the XY plane to generate the resulting directions. (Default: (0, -1, 0)).</p></li>
+<li><p><strong>mesh_radius</strong> – An optional number to override the radius of the meshes
+generated around each sensor. If None or autocalculate, it will be
+equal to 45% of the grid dimension. (Default: None).</p></li>
+<li><p><strong>include_mesh</strong> – A boolean to note whether the resulting SensorGrid should
+include the mesh. (Default: True).</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="dragonfly_radiance.gridpar.RoomRadialGridParameter.ToString">
+<span class="sig-name descname"><span class="pre">ToString</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dragonfly_radiance/gridpar.html#RoomRadialGridParameter.ToString"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dragonfly_radiance.gridpar.RoomRadialGridParameter.ToString" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dragonfly_radiance.gridpar.RoomRadialGridParameter.duplicate">
+<span class="sig-name descname"><span class="pre">duplicate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dragonfly_radiance/gridpar.html#RoomRadialGridParameter.duplicate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dragonfly_radiance.gridpar.RoomRadialGridParameter.duplicate" title="Link to this definition">¶</a></dt>
+<dd><p>Get a copy of this object.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dragonfly_radiance.gridpar.RoomRadialGridParameter.from_dict">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dragonfly_radiance/gridpar.html#RoomRadialGridParameter.from_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dragonfly_radiance.gridpar.RoomRadialGridParameter.from_dict" title="Link to this definition">¶</a></dt>
+<dd><p>Create RoomRadialGridParameter from a dictionary.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;RoomRadialGridParameter&quot;</span><span class="p">,</span>
+<span class="s2">&quot;dimension&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+<span class="s2">&quot;offset&quot;</span><span class="p">:</span> <span class="mf">1.2</span><span class="p">,</span>
+<span class="s2">&quot;wall_offset&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+<span class="s2">&quot;dir_count&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+<span class="s2">&quot;start_vector&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+<span class="s2">&quot;mesh_radius&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
+<span class="s2">&quot;include_mesh&quot;</span><span class="p">:</span> <span class="kc">True</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dragonfly_radiance.gridpar.RoomRadialGridParameter.generate_grid_from_room">
+<span class="sig-name descname"><span class="pre">generate_grid_from_room</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">honeybee_room</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dragonfly_radiance/gridpar.html#RoomRadialGridParameter.generate_grid_from_room"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dragonfly_radiance.gridpar.RoomRadialGridParameter.generate_grid_from_room" title="Link to this definition">¶</a></dt>
+<dd><p>Get a SensorGrid from a Honeybee Room using these GridParameter.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>honeybee_room</strong> – A Honeybee Room to which these grid parameters are applied.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A honeybee-radiance SensorGrid generated from the Honeybee Room. Will
+be None if a valid Grid cannot be generated from the Room.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dragonfly_radiance.gridpar.RoomRadialGridParameter.scale">
+<span class="sig-name descname"><span class="pre">scale</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">factor</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dragonfly_radiance/gridpar.html#RoomRadialGridParameter.scale"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dragonfly_radiance.gridpar.RoomRadialGridParameter.scale" title="Link to this definition">¶</a></dt>
+<dd><p>Get a scaled version of these GridParameters.</p>
+<p>This method is called within the scale methods of the Room2D.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>factor</strong> – A number representing how much the object should be scaled.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dragonfly_radiance.gridpar.RoomRadialGridParameter.to_dict">
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dragonfly_radiance/gridpar.html#RoomRadialGridParameter.to_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dragonfly_radiance.gridpar.RoomRadialGridParameter.to_dict" title="Link to this definition">¶</a></dt>
+<dd><p>Get RoomRadialGridParameter as a dictionary.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="dragonfly_radiance.gridpar.RoomRadialGridParameter.dimension">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dimension</span></span><a class="headerlink" href="#dragonfly_radiance.gridpar.RoomRadialGridParameter.dimension" title="Link to this definition">¶</a></dt>
+<dd><p>Get a number for the dimension of the grid cells.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="dragonfly_radiance.gridpar.RoomRadialGridParameter.dir_count">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dir_count</span></span><a class="headerlink" href="#dragonfly_radiance.gridpar.RoomRadialGridParameter.dir_count" title="Link to this definition">¶</a></dt>
+<dd><p>Get an integer for the number of radial directions around each position.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="dragonfly_radiance.gridpar.RoomRadialGridParameter.include_mesh">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">include_mesh</span></span><a class="headerlink" href="#dragonfly_radiance.gridpar.RoomRadialGridParameter.include_mesh" title="Link to this definition">¶</a></dt>
+<dd><p>Get a boolean for whether the resulting SensorGrid should include the mesh.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="dragonfly_radiance.gridpar.RoomRadialGridParameter.mesh_radius">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">mesh_radius</span></span><a class="headerlink" href="#dragonfly_radiance.gridpar.RoomRadialGridParameter.mesh_radius" title="Link to this definition">¶</a></dt>
+<dd><p>Get a number that sets the radius of the meshes generated around each sensor.</p>
+<p>If None or autocalculate, it will be equal to 45% of the grid dimension.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="dragonfly_radiance.gridpar.RoomRadialGridParameter.offset">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">offset</span></span><a class="headerlink" href="#dragonfly_radiance.gridpar.RoomRadialGridParameter.offset" title="Link to this definition">¶</a></dt>
+<dd><p>Get a number for how far to offset the grid from the base geometries.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="dragonfly_radiance.gridpar.RoomRadialGridParameter.start_vector">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">start_vector</span></span><a class="headerlink" href="#dragonfly_radiance.gridpar.RoomRadialGridParameter.start_vector" title="Link to this definition">¶</a></dt>
+<dd><p>Get a Vector3D that sets the start direction of the generated directions.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="dragonfly_radiance.gridpar.RoomRadialGridParameter.wall_offset">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">wall_offset</span></span><a class="headerlink" href="#dragonfly_radiance.gridpar.RoomRadialGridParameter.wall_offset" title="Link to this definition">¶</a></dt>
+<dd><p>Get a number for the distance at which sensors near walls should be removed.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2026, Ladybug Tools.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 8.0.2.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

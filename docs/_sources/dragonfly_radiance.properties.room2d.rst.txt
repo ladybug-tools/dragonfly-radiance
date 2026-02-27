@@ -1,0 +1,7 @@
+dragonfly\_radiance.properties.room2d module
+============================================
+
+.. automodule:: dragonfly_radiance.properties.room2d
+   :members:
+   :undoc-members:
+   :show-inheritance:
