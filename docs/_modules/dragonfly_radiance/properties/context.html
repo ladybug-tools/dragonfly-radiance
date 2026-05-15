@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>dragonfly_radiance.properties.context &#8212; dragonfly-radiance  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/bootstrap-sphinx.css?v=0bf093e7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=0b9525ea" />
+    <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+<link rel="icon" type="image/x-icon" href="https://github.com/ladybug-tools/artwork/raw/refs/heads/master/icons_bugs/ico/dragonfly.ico">
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../../../_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="../../../_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="../../../_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="../../../_static/bootstrap-sphinx.js "></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          dragonfly-radiance</a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../cli/index.html">CLI Docs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../cli/index.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cli/index.html#commands">Commands</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../cli/translate.html">translate</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../cli/translate.html#dragonfly-radiance-translate">dragonfly-radiance translate</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../cli/translate.html#dragonfly-radiance-translate-model-to-rad">model-to-rad</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cli/translate.html#dragonfly-radiance-translate-model-to-rad-folder">model-to-rad-folder</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">dragonfly_radiance</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../dragonfly_radiance.html">dragonfly_radiance package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../dragonfly_radiance.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../dragonfly_radiance.cli.html">dragonfly_radiance.cli package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../dragonfly_radiance.cli.html#submodules">Submodules</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.cli.translate.html">dragonfly_radiance.cli.translate module</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="../../../dragonfly_radiance.cli.translate.html#dragonfly_radiance.cli.translate.model_to_rad"><code class="docutils literal notranslate"><span class="pre">model_to_rad()</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../dragonfly_radiance.cli.translate.html#dragonfly_radiance.cli.translate.model_to_rad_folder"><code class="docutils literal notranslate"><span class="pre">model_to_rad_folder()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="../../../dragonfly_radiance.cli.html#module-dragonfly_radiance.cli">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../dragonfly_radiance.properties.html">dragonfly_radiance.properties package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../dragonfly_radiance.properties.html#submodules">Submodules</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.properties.building.html">dragonfly_radiance.properties.building module</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="../../../dragonfly_radiance.properties.building.html#dragonfly_radiance.properties.building.BuildingRadianceProperties"><code class="docutils literal notranslate"><span class="pre">BuildingRadianceProperties</span></code></a><ul>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.building.html#dragonfly_radiance.properties.building.BuildingRadianceProperties.ToString"><code class="docutils literal notranslate"><span class="pre">ToString()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.building.html#dragonfly_radiance.properties.building.BuildingRadianceProperties.add_grid_parameter"><code class="docutils literal notranslate"><span class="pre">add_grid_parameter()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.building.html#dragonfly_radiance.properties.building.BuildingRadianceProperties.apply_properties_from_dict"><code class="docutils literal notranslate"><span class="pre">apply_properties_from_dict()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.building.html#dragonfly_radiance.properties.building.BuildingRadianceProperties.apply_properties_from_geojson_dict"><code class="docutils literal notranslate"><span class="pre">apply_properties_from_geojson_dict()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.building.html#dragonfly_radiance.properties.building.BuildingRadianceProperties.duplicate"><code class="docutils literal notranslate"><span class="pre">duplicate()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.building.html#dragonfly_radiance.properties.building.BuildingRadianceProperties.from_dict"><code class="docutils literal notranslate"><span class="pre">from_dict()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.building.html#dragonfly_radiance.properties.building.BuildingRadianceProperties.make_plenums"><code class="docutils literal notranslate"><span class="pre">make_plenums()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.building.html#dragonfly_radiance.properties.building.BuildingRadianceProperties.to_dict"><code class="docutils literal notranslate"><span class="pre">to_dict()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.building.html#dragonfly_radiance.properties.building.BuildingRadianceProperties.host"><code class="docutils literal notranslate"><span class="pre">host</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.building.html#dragonfly_radiance.properties.building.BuildingRadianceProperties.modifier_set"><code class="docutils literal notranslate"><span class="pre">modifier_set</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.properties.context.html">dragonfly_radiance.properties.context module</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="../../../dragonfly_radiance.properties.context.html#dragonfly_radiance.properties.context.ContextShadeRadianceProperties"><code class="docutils literal notranslate"><span class="pre">ContextShadeRadianceProperties</span></code></a><ul>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.context.html#dragonfly_radiance.properties.context.ContextShadeRadianceProperties.ToString"><code class="docutils literal notranslate"><span class="pre">ToString()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.context.html#dragonfly_radiance.properties.context.ContextShadeRadianceProperties.apply_properties_from_dict"><code class="docutils literal notranslate"><span class="pre">apply_properties_from_dict()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.context.html#dragonfly_radiance.properties.context.ContextShadeRadianceProperties.duplicate"><code class="docutils literal notranslate"><span class="pre">duplicate()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.context.html#dragonfly_radiance.properties.context.ContextShadeRadianceProperties.from_dict"><code class="docutils literal notranslate"><span class="pre">from_dict()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.context.html#dragonfly_radiance.properties.context.ContextShadeRadianceProperties.from_honeybee"><code class="docutils literal notranslate"><span class="pre">from_honeybee()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.context.html#dragonfly_radiance.properties.context.ContextShadeRadianceProperties.to_dict"><code class="docutils literal notranslate"><span class="pre">to_dict()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.context.html#dragonfly_radiance.properties.context.ContextShadeRadianceProperties.to_honeybee"><code class="docutils literal notranslate"><span class="pre">to_honeybee()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.context.html#dragonfly_radiance.properties.context.ContextShadeRadianceProperties.host"><code class="docutils literal notranslate"><span class="pre">host</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.context.html#dragonfly_radiance.properties.context.ContextShadeRadianceProperties.is_modifier_set_by_user"><code class="docutils literal notranslate"><span class="pre">is_modifier_set_by_user</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.context.html#dragonfly_radiance.properties.context.ContextShadeRadianceProperties.modifier"><code class="docutils literal notranslate"><span class="pre">modifier</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.properties.model.html">dragonfly_radiance.properties.model module</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="../../../dragonfly_radiance.properties.model.html#dragonfly_radiance.properties.model.ModelRadianceProperties"><code class="docutils literal notranslate"><span class="pre">ModelRadianceProperties</span></code></a><ul>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.model.html#dragonfly_radiance.properties.model.ModelRadianceProperties.ToString"><code class="docutils literal notranslate"><span class="pre">ToString()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.model.html#dragonfly_radiance.properties.model.ModelRadianceProperties.apply_properties_from_dict"><code class="docutils literal notranslate"><span class="pre">apply_properties_from_dict()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.model.html#dragonfly_radiance.properties.model.ModelRadianceProperties.check_all"><code class="docutils literal notranslate"><span class="pre">check_all()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.model.html#dragonfly_radiance.properties.model.ModelRadianceProperties.check_all_duplicate_identifiers"><code class="docutils literal notranslate"><span class="pre">check_all_duplicate_identifiers()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.model.html#dragonfly_radiance.properties.model.ModelRadianceProperties.check_duplicate_modifier_identifiers"><code class="docutils literal notranslate"><span class="pre">check_duplicate_modifier_identifiers()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.model.html#dragonfly_radiance.properties.model.ModelRadianceProperties.check_duplicate_modifier_set_identifiers"><code class="docutils literal notranslate"><span class="pre">check_duplicate_modifier_set_identifiers()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.model.html#dragonfly_radiance.properties.model.ModelRadianceProperties.check_for_extension"><code class="docutils literal notranslate"><span class="pre">check_for_extension()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.model.html#dragonfly_radiance.properties.model.ModelRadianceProperties.check_generic"><code class="docutils literal notranslate"><span class="pre">check_generic()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.model.html#dragonfly_radiance.properties.model.ModelRadianceProperties.duplicate"><code class="docutils literal notranslate"><span class="pre">duplicate()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.model.html#dragonfly_radiance.properties.model.ModelRadianceProperties.to_dict"><code class="docutils literal notranslate"><span class="pre">to_dict()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.model.html#dragonfly_radiance.properties.model.ModelRadianceProperties.to_honeybee"><code class="docutils literal notranslate"><span class="pre">to_honeybee()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.model.html#dragonfly_radiance.properties.model.ModelRadianceProperties.ERROR_MAP"><code class="docutils literal notranslate"><span class="pre">ERROR_MAP</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.model.html#dragonfly_radiance.properties.model.ModelRadianceProperties.face_modifiers"><code class="docutils literal notranslate"><span class="pre">face_modifiers</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.model.html#dragonfly_radiance.properties.model.ModelRadianceProperties.global_modifier_set"><code class="docutils literal notranslate"><span class="pre">global_modifier_set</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.model.html#dragonfly_radiance.properties.model.ModelRadianceProperties.host"><code class="docutils literal notranslate"><span class="pre">host</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.model.html#dragonfly_radiance.properties.model.ModelRadianceProperties.modifier_sets"><code class="docutils literal notranslate"><span class="pre">modifier_sets</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.model.html#dragonfly_radiance.properties.model.ModelRadianceProperties.modifiers"><code class="docutils literal notranslate"><span class="pre">modifiers</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.model.html#dragonfly_radiance.properties.model.ModelRadianceProperties.shade_modifiers"><code class="docutils literal notranslate"><span class="pre">shade_modifiers</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.properties.room2d.html">dragonfly_radiance.properties.room2d module</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="../../../dragonfly_radiance.properties.room2d.html#dragonfly_radiance.properties.room2d.Room2DRadianceProperties"><code class="docutils literal notranslate"><span class="pre">Room2DRadianceProperties</span></code></a><ul>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.room2d.html#dragonfly_radiance.properties.room2d.Room2DRadianceProperties.ToString"><code class="docutils literal notranslate"><span class="pre">ToString()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.room2d.html#dragonfly_radiance.properties.room2d.Room2DRadianceProperties.add_grid_parameter"><code class="docutils literal notranslate"><span class="pre">add_grid_parameter()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.room2d.html#dragonfly_radiance.properties.room2d.Room2DRadianceProperties.apply_properties_from_dict"><code class="docutils literal notranslate"><span class="pre">apply_properties_from_dict()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.room2d.html#dragonfly_radiance.properties.room2d.Room2DRadianceProperties.duplicate"><code class="docutils literal notranslate"><span class="pre">duplicate()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.room2d.html#dragonfly_radiance.properties.room2d.Room2DRadianceProperties.from_dict"><code class="docutils literal notranslate"><span class="pre">from_dict()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.room2d.html#dragonfly_radiance.properties.room2d.Room2DRadianceProperties.from_honeybee"><code class="docutils literal notranslate"><span class="pre">from_honeybee()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.room2d.html#dragonfly_radiance.properties.room2d.Room2DRadianceProperties.make_plenum"><code class="docutils literal notranslate"><span class="pre">make_plenum()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.room2d.html#dragonfly_radiance.properties.room2d.Room2DRadianceProperties.remove_grid_parameters"><code class="docutils literal notranslate"><span class="pre">remove_grid_parameters()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.room2d.html#dragonfly_radiance.properties.room2d.Room2DRadianceProperties.to_dict"><code class="docutils literal notranslate"><span class="pre">to_dict()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.room2d.html#dragonfly_radiance.properties.room2d.Room2DRadianceProperties.to_honeybee"><code class="docutils literal notranslate"><span class="pre">to_honeybee()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.room2d.html#dragonfly_radiance.properties.room2d.Room2DRadianceProperties.grid_parameters"><code class="docutils literal notranslate"><span class="pre">grid_parameters</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.room2d.html#dragonfly_radiance.properties.room2d.Room2DRadianceProperties.host"><code class="docutils literal notranslate"><span class="pre">host</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.room2d.html#dragonfly_radiance.properties.room2d.Room2DRadianceProperties.modifier_set"><code class="docutils literal notranslate"><span class="pre">modifier_set</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.properties.story.html">dragonfly_radiance.properties.story module</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="../../../dragonfly_radiance.properties.story.html#dragonfly_radiance.properties.story.StoryRadianceProperties"><code class="docutils literal notranslate"><span class="pre">StoryRadianceProperties</span></code></a><ul>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.story.html#dragonfly_radiance.properties.story.StoryRadianceProperties.ToString"><code class="docutils literal notranslate"><span class="pre">ToString()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.story.html#dragonfly_radiance.properties.story.StoryRadianceProperties.apply_properties_from_dict"><code class="docutils literal notranslate"><span class="pre">apply_properties_from_dict()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.story.html#dragonfly_radiance.properties.story.StoryRadianceProperties.duplicate"><code class="docutils literal notranslate"><span class="pre">duplicate()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.story.html#dragonfly_radiance.properties.story.StoryRadianceProperties.from_dict"><code class="docutils literal notranslate"><span class="pre">from_dict()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.story.html#dragonfly_radiance.properties.story.StoryRadianceProperties.to_dict"><code class="docutils literal notranslate"><span class="pre">to_dict()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.story.html#dragonfly_radiance.properties.story.StoryRadianceProperties.host"><code class="docutils literal notranslate"><span class="pre">host</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../../dragonfly_radiance.properties.story.html#dragonfly_radiance.properties.story.StoryRadianceProperties.modifier_set"><code class="docutils literal notranslate"><span class="pre">modifier_set</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="../../../dragonfly_radiance.properties.html#module-dragonfly_radiance.properties">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../dragonfly_radiance.html#submodules">Submodules</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html">dragonfly_radiance.gridpar module</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.ExteriorApertureGridParameter"><code class="docutils literal notranslate"><span class="pre">ExteriorApertureGridParameter</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.ExteriorApertureGridParameter.ToString"><code class="docutils literal notranslate"><span class="pre">ToString()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.ExteriorApertureGridParameter.duplicate"><code class="docutils literal notranslate"><span class="pre">duplicate()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.ExteriorApertureGridParameter.from_dict"><code class="docutils literal notranslate"><span class="pre">from_dict()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.ExteriorApertureGridParameter.generate_grid_from_room"><code class="docutils literal notranslate"><span class="pre">generate_grid_from_room()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.ExteriorApertureGridParameter.scale"><code class="docutils literal notranslate"><span class="pre">scale()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.ExteriorApertureGridParameter.to_dict"><code class="docutils literal notranslate"><span class="pre">to_dict()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.ExteriorApertureGridParameter.APERTURE_TYPES"><code class="docutils literal notranslate"><span class="pre">APERTURE_TYPES</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.ExteriorApertureGridParameter.aperture_type"><code class="docutils literal notranslate"><span class="pre">aperture_type</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.ExteriorApertureGridParameter.dimension"><code class="docutils literal notranslate"><span class="pre">dimension</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.ExteriorApertureGridParameter.include_mesh"><code class="docutils literal notranslate"><span class="pre">include_mesh</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.ExteriorApertureGridParameter.offset"><code class="docutils literal notranslate"><span class="pre">offset</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.ExteriorFaceGridParameter"><code class="docutils literal notranslate"><span class="pre">ExteriorFaceGridParameter</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.ExteriorFaceGridParameter.ToString"><code class="docutils literal notranslate"><span class="pre">ToString()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.ExteriorFaceGridParameter.duplicate"><code class="docutils literal notranslate"><span class="pre">duplicate()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.ExteriorFaceGridParameter.from_dict"><code class="docutils literal notranslate"><span class="pre">from_dict()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.ExteriorFaceGridParameter.generate_grid_from_room"><code class="docutils literal notranslate"><span class="pre">generate_grid_from_room()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.ExteriorFaceGridParameter.scale"><code class="docutils literal notranslate"><span class="pre">scale()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.ExteriorFaceGridParameter.to_dict"><code class="docutils literal notranslate"><span class="pre">to_dict()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.ExteriorFaceGridParameter.FACE_TYPES"><code class="docutils literal notranslate"><span class="pre">FACE_TYPES</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.ExteriorFaceGridParameter.dimension"><code class="docutils literal notranslate"><span class="pre">dimension</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.ExteriorFaceGridParameter.face_type"><code class="docutils literal notranslate"><span class="pre">face_type</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.ExteriorFaceGridParameter.include_mesh"><code class="docutils literal notranslate"><span class="pre">include_mesh</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.ExteriorFaceGridParameter.offset"><code class="docutils literal notranslate"><span class="pre">offset</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.ExteriorFaceGridParameter.punched_geometry"><code class="docutils literal notranslate"><span class="pre">punched_geometry</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.RoomGridParameter"><code class="docutils literal notranslate"><span class="pre">RoomGridParameter</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.RoomGridParameter.ToString"><code class="docutils literal notranslate"><span class="pre">ToString()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.RoomGridParameter.duplicate"><code class="docutils literal notranslate"><span class="pre">duplicate()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.RoomGridParameter.from_dict"><code class="docutils literal notranslate"><span class="pre">from_dict()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.RoomGridParameter.generate_grid_from_room"><code class="docutils literal notranslate"><span class="pre">generate_grid_from_room()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.RoomGridParameter.scale"><code class="docutils literal notranslate"><span class="pre">scale()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.RoomGridParameter.to_dict"><code class="docutils literal notranslate"><span class="pre">to_dict()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.RoomGridParameter.dimension"><code class="docutils literal notranslate"><span class="pre">dimension</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.RoomGridParameter.include_mesh"><code class="docutils literal notranslate"><span class="pre">include_mesh</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.RoomGridParameter.offset"><code class="docutils literal notranslate"><span class="pre">offset</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.RoomGridParameter.wall_offset"><code class="docutils literal notranslate"><span class="pre">wall_offset</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.RoomRadialGridParameter"><code class="docutils literal notranslate"><span class="pre">RoomRadialGridParameter</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.RoomRadialGridParameter.ToString"><code class="docutils literal notranslate"><span class="pre">ToString()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.RoomRadialGridParameter.duplicate"><code class="docutils literal notranslate"><span class="pre">duplicate()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.RoomRadialGridParameter.from_dict"><code class="docutils literal notranslate"><span class="pre">from_dict()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.RoomRadialGridParameter.generate_grid_from_room"><code class="docutils literal notranslate"><span class="pre">generate_grid_from_room()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.RoomRadialGridParameter.scale"><code class="docutils literal notranslate"><span class="pre">scale()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.RoomRadialGridParameter.to_dict"><code class="docutils literal notranslate"><span class="pre">to_dict()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.RoomRadialGridParameter.dimension"><code class="docutils literal notranslate"><span class="pre">dimension</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.RoomRadialGridParameter.dir_count"><code class="docutils literal notranslate"><span class="pre">dir_count</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.RoomRadialGridParameter.include_mesh"><code class="docutils literal notranslate"><span class="pre">include_mesh</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.RoomRadialGridParameter.mesh_radius"><code class="docutils literal notranslate"><span class="pre">mesh_radius</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.RoomRadialGridParameter.offset"><code class="docutils literal notranslate"><span class="pre">offset</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.RoomRadialGridParameter.start_vector"><code class="docutils literal notranslate"><span class="pre">start_vector</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../dragonfly_radiance.gridpar.html#dragonfly_radiance.gridpar.RoomRadialGridParameter.wall_offset"><code class="docutils literal notranslate"><span class="pre">wall_offset</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../dragonfly_radiance.html#module-dragonfly_radiance">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../cli/index.html">CLI Docs</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">dragonfly_radiance</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+              
+            
+            
+            
+            
+              <li class="hidden-sm"></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-4">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../cli/index.html">CLI Docs</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">dragonfly_radiance</a></li>
+</ul>
+
+        </div>
+      </div>
+    <div class="body col-md-8 content" role="main">
+      
+  <h1>Source code for dragonfly_radiance.properties.context</h1><div class="highlight"><pre>
+<span></span><span class="c1"># coding=utf-8</span>
+<span class="sd">&quot;&quot;&quot;Context Shade Radiance Properties.&quot;&quot;&quot;</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">honeybee.shade</span><span class="w"> </span><span class="kn">import</span> <span class="n">Shade</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">honeybee_radiance.modifier</span><span class="w"> </span><span class="kn">import</span> <span class="n">Modifier</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">honeybee_radiance.properties.shade</span><span class="w"> </span><span class="kn">import</span> <span class="n">ShadeRadianceProperties</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">honeybee_radiance.properties.shademesh</span><span class="w"> </span><span class="kn">import</span> <span class="n">ShadeMeshRadianceProperties</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">honeybee_radiance.mutil</span><span class="w"> </span><span class="kn">import</span> <span class="n">dict_to_modifier</span>  <span class="c1"># imports all modifiers classes</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">honeybee_radiance.lib.modifiers</span><span class="w"> </span><span class="kn">import</span> <span class="n">generic_context</span>
+
+
+<div class="viewcode-block" id="ContextShadeRadianceProperties">
+<a class="viewcode-back" href="../../../dragonfly_radiance.properties.context.html#dragonfly_radiance.properties.context.ContextShadeRadianceProperties">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">ContextShadeRadianceProperties</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Radiance Properties for Dragonfly ContextShade.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        host_shade: A dragonfly_core ContextShade object that hosts these properties.</span>
+<span class="sd">        modifier: An optional Modifier object to set the reflectance and specularity</span>
+<span class="sd">            of the ContextShade. The default is a completely diffuse modifier</span>
+<span class="sd">            with 0.2 reflectance.</span>
+
+<span class="sd">    Properties:</span>
+<span class="sd">        * host</span>
+<span class="sd">        * modifier</span>
+<span class="sd">        * is_modifier_set_by_user</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="vm">__slots__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;_host&#39;</span><span class="p">,</span> <span class="s1">&#39;_modifier&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">host_shade</span><span class="p">,</span> <span class="n">modifier</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize ContextShade radiance properties.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_host</span> <span class="o">=</span> <span class="n">host_shade</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">modifier</span> <span class="o">=</span> <span class="n">modifier</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">host</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the Shade object hosting these properties.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_host</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">modifier</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get or set a Modifier for the context shade.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_modifier</span><span class="p">:</span>  <span class="c1"># set by user</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_modifier</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">generic_context</span>
+
+    <span class="nd">@modifier</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">modifier</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">Modifier</span><span class="p">),</span> \
+                <span class="s1">&#39;Expected Modifier. Got </span><span class="si">{}</span><span class="s1">.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
+            <span class="n">value</span><span class="o">.</span><span class="n">lock</span><span class="p">()</span>  <span class="c1"># lock editing in case modifier has multiple references</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_modifier</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_modifier_set_by_user</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Boolean noting if modifier is user-set.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_modifier</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+
+<div class="viewcode-block" id="ContextShadeRadianceProperties.from_dict">
+<a class="viewcode-back" href="../../../dragonfly_radiance.properties.context.html#dragonfly_radiance.properties.context.ContextShadeRadianceProperties.from_dict">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">from_dict</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">host</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Create ContextShadeRadianceProperties from a dictionary.</span>
+
+<span class="sd">        Note that the dictionary must be a non-abridged version for this</span>
+<span class="sd">        classmethod to work.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            data: A dictionary representation of ContextShadeRadianceProperties.</span>
+<span class="sd">            host: A ContextShade object that hosts these properties.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">assert</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;ContextShadeRadianceProperties&#39;</span><span class="p">,</span> \
+            <span class="s1">&#39;Expected ContextShadeRadianceProperties. Got </span><span class="si">{}</span><span class="s1">.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">])</span>
+
+        <span class="n">new_prop</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">(</span><span class="n">host</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s1">&#39;modifier&#39;</span> <span class="ow">in</span> <span class="n">data</span> <span class="ow">and</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;modifier&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">new_prop</span><span class="o">.</span><span class="n">modifier</span> <span class="o">=</span> <span class="n">dict_to_modifier</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;modifier&#39;</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">new_prop</span></div>
+
+
+<div class="viewcode-block" id="ContextShadeRadianceProperties.apply_properties_from_dict">
+<a class="viewcode-back" href="../../../dragonfly_radiance.properties.context.html#dragonfly_radiance.properties.context.ContextShadeRadianceProperties.apply_properties_from_dict">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">apply_properties_from_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">abridged_data</span><span class="p">,</span> <span class="n">modifiers</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Apply properties from a ContextShadeRadiancePropertiesAbridged dictionary.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            abridged_data: A ContextShadeRadiancePropertiesAbridged dictionary (typically</span>
+<span class="sd">                coming from a Model).</span>
+<span class="sd">            modifiers: A dictionary of modifiers with modifiers identifiers</span>
+<span class="sd">                as keys, which will be used to re-assign modifiers.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="s1">&#39;modifier&#39;</span> <span class="ow">in</span> <span class="n">abridged_data</span> <span class="ow">and</span> <span class="n">abridged_data</span><span class="p">[</span><span class="s1">&#39;modifier&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">modifier</span> <span class="o">=</span> <span class="n">modifiers</span><span class="p">[</span><span class="n">abridged_data</span><span class="p">[</span><span class="s1">&#39;modifier&#39;</span><span class="p">]]</span></div>
+
+
+<div class="viewcode-block" id="ContextShadeRadianceProperties.to_dict">
+<a class="viewcode-back" href="../../../dragonfly_radiance.properties.context.html#dragonfly_radiance.properties.context.ContextShadeRadianceProperties.to_dict">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">abridged</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return radiance properties as a dictionary.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            abridged: Boolean to note whether the full dictionary describing the</span>
+<span class="sd">                object should be returned (False) or just an abridged version (True).</span>
+<span class="sd">                Default: False.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">base</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;radiance&#39;</span><span class="p">:</span> <span class="p">{}}</span>
+        <span class="n">base</span><span class="p">[</span><span class="s1">&#39;radiance&#39;</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;ContextShadeRadianceProperties&#39;</span> <span class="k">if</span> <span class="ow">not</span> \
+            <span class="n">abridged</span> <span class="k">else</span> <span class="s1">&#39;ContextShadeRadiancePropertiesAbridged&#39;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_modifier</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">base</span><span class="p">[</span><span class="s1">&#39;radiance&#39;</span><span class="p">][</span><span class="s1">&#39;modifier&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_modifier</span><span class="o">.</span><span class="n">identifier</span> <span class="k">if</span> <span class="n">abridged</span> \
+                <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">_modifier</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">base</span></div>
+
+
+<div class="viewcode-block" id="ContextShadeRadianceProperties.to_honeybee">
+<a class="viewcode-back" href="../../../dragonfly_radiance.properties.context.html#dragonfly_radiance.properties.context.ContextShadeRadianceProperties.to_honeybee">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">to_honeybee</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_host</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get a honeybee version of this object.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            new_host: A honeybee-core Shade or ShadeMesh object that will host</span>
+<span class="sd">                these properties.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">ShadeRadianceProperties</span><span class="p">(</span><span class="n">new_host</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_modifier</span><span class="p">)</span> \
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">new_host</span><span class="p">,</span> <span class="n">Shade</span><span class="p">)</span> <span class="k">else</span> \
+            <span class="n">ShadeMeshRadianceProperties</span><span class="p">(</span><span class="n">new_host</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_modifier</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ContextShadeRadianceProperties.from_honeybee">
+<a class="viewcode-back" href="../../../dragonfly_radiance.properties.context.html#dragonfly_radiance.properties.context.ContextShadeRadianceProperties.from_honeybee">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">from_honeybee</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hb_properties</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Transfer radiance attributes from a Honeybee Shade to Dragonfly ContextShade.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            hb_properties: The ShadeRadianceProperties of the honeybee Shade</span>
+<span class="sd">                that is being translated to a Dragonfly ContextShade.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_modifier</span> <span class="o">=</span> <span class="n">hb_properties</span><span class="o">.</span><span class="n">_modifier</span></div>
+
+
+<div class="viewcode-block" id="ContextShadeRadianceProperties.duplicate">
+<a class="viewcode-back" href="../../../dragonfly_radiance.properties.context.html#dragonfly_radiance.properties.context.ContextShadeRadianceProperties.duplicate">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">duplicate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_host</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get a copy of this object.</span>
+
+<span class="sd">        new_host: A new ContextShade object that hosts these properties.</span>
+<span class="sd">            If None, the properties will be duplicated with the same host.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">_host</span> <span class="o">=</span> <span class="n">new_host</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_host</span>
+        <span class="k">return</span> <span class="n">ContextShadeRadianceProperties</span><span class="p">(</span><span class="n">_host</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_modifier</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ContextShadeRadianceProperties.ToString">
+<a class="viewcode-back" href="../../../dragonfly_radiance.properties.context.html#dragonfly_radiance.properties.context.ContextShadeRadianceProperties.ToString">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">ToString</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__repr__</span><span class="p">()</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">&#39;Context Shade Radiance Properties: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">identifier</span><span class="p">)</span></div>
+
+</pre></div>
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2026, Ladybug Tools.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 8.0.2.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
