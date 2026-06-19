@@ -1,2 +1,2 @@
 dragonfly-core==1.76.20
-honeybee-radiance==1.66.271
+honeybee-radiance==1.66.272
