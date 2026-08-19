@@ -1,0 +1,27 @@
+dragonfly\_radiance package
+===========================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   dragonfly_radiance.cli
+   dragonfly_radiance.properties
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   dragonfly_radiance.gridpar
+
+Module contents
+---------------
+
+.. automodule:: dragonfly_radiance
+   :members:
+   :undoc-members:
+   :show-inheritance:
