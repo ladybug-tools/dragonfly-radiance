@@ -1,0 +1,7 @@
+dragonfly\_radiance.properties.building module
+==============================================
+
+.. automodule:: dragonfly_radiance.properties.building
+   :members:
+   :undoc-members:
+   :show-inheritance:
