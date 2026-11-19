@@ -1,0 +1,7 @@
+dragonfly\_radiance.cli.translate module
+========================================
+
+.. automodule:: dragonfly_radiance.cli.translate
+   :members:
+   :undoc-members:
+   :show-inheritance:
